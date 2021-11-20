@@ -51,10 +51,38 @@ window.onclick = function(event) {
 }
 
 
-function esAdmin(){
-  return localStorage.getItem("TIPO") == "ADMIN"
-}
+
+
 
 function encontreMascota(){
   window.location.href = "./encontreUnaMascota.html?id=-1"
 }
+
+
+
+var app = new Vue({
+  el: "#appVueMenu",
+  data: {
+  },
+  methods:{
+    esAdmin: function(){
+      return localStorage.getItem("TIPO") == "ADMIN"
+    },
+    esDuenio: function(){
+      return localStorage.getItem("TIPO") == "DUENIO"
+    },
+    esRescatista: function(){
+      return localStorage.getItem("TIPO") == "RESCATISTA"
+    },
+
+    esVoluntario: function(){
+      return localStorage.getItem("TIPO") == "VOLUNTARIO"
+    },
+    esDuenioORescatista: function(){
+      var tipo = localStorage.getItem("TIPO") 
+      return tipo == "RESCATISTA" || tipo == "DUENIO"
+    }
+
+  }
+ 
+})
