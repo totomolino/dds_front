@@ -53,9 +53,13 @@ var app = new Vue({
 
              if(val == true){ //APRETA OKAY
                 localStorage.setItem("personaID", this.idDuenio)
+                localStorage.setItem("tipo", this.tipo)
                 document.getElementById("agregarContacto").click();
              }else{
-                document.getElementById("index").click();
+                if(this.tipo == "RESCATISTA"){
+                    document.getElementById("rescatista").click();    
+                }else
+                    document.getElementById("index").click();
              }
 
              
@@ -168,7 +172,7 @@ function agregarNotificacionPersona(id, notif){
         body: JSON.stringify(reqNotifPers)
     }).then(resp => {
         error(resp.status, "No se pudo agregar el tipo de notif")
-        if(Response.status = 200){
+        if(resp.status = 200){
             resolve('se agrego la notificacion al duenio')
         }
     });

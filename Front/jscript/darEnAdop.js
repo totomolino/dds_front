@@ -30,6 +30,6 @@ var app = new Vue({
                 this.mascotas = data.mascotas
                 console.log(this.mascotas)
             })
-            
+                                                                                                                     
     }     
 })

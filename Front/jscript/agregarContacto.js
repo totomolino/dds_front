@@ -8,6 +8,7 @@ var app = new Vue({
         emailCon:"",
         formasNotifCon: [],
         idDuenio: "",
+        tipo:""
     },
     methods:{
         agregar: async function(){
@@ -25,7 +26,9 @@ var app = new Vue({
                 if(val == true){ //APRETA OKAY                
                     document.getElementById("agregarContacto").click();
                 }else{
-                    document.getElementById("index").click();
+                    if(this.tipo == "RESCATISTA"){
+                        document.getElementById("rescatista").click();    
+                    }else document.getElementById("index").click();
                 }
             } else {
                 alert("TENES QUE COMPLETAR TODOS LOS CAMPOS")
@@ -66,7 +69,7 @@ var app = new Vue({
 
     created(){
         this.idDuenio  = localStorage.getItem("personaID")
-        
+        this.tipo = localStorage.getItem("tipo")
     }
 })
 

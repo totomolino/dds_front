@@ -90,7 +90,7 @@
                   <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
               </section>
               <section>
-                  <a href="encontreUnaMascota.html" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
+                  <a onclick="encontreMascota();" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
               </section>
               <section>
                   <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
@@ -121,11 +121,11 @@
         <br/>
         <br/>
         <br/>
-        <section>
-            <div class="botonesEncontrar">            
-                <a type="submit" href="EscanearChapita.html" class="boton-encontrarMascota">Escanear codigo QR</a>
-
-                <a type="submit" href="FormularioSinChapita.html" class="boton-encontrarMascota">Completar formulario de rescate</a>
+        <section >
+            <div class="botonesEncontrar" id="appVueEncontre">            
+                <button  class="boton-encontrarMascota" v-on:click="empezarForm()">Completar Formulario</button>
+                <a id="conUsuario" href="iniciarSesion.html" target = "_self"></a>
+                <a id="sinUsuario" href="registrarPersona.html" target = "_self"></a>
             </div>
             <div class="imagenPerritos">
                 <img src="../fotos/grupoPerritos.png" alt="fotoPerritos">
@@ -174,7 +174,7 @@
             </section>
         </section>
       </footer>
-
+      <script type="text/javascript" src="../jscript/encontreMascota.js"></script>
   </body>
   
 

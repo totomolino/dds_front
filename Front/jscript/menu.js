@@ -54,3 +54,7 @@ window.onclick = function(event) {
 function esAdmin(){
   return localStorage.getItem("TIPO") == "ADMIN"
 }
+
+function encontreMascota(){
+  window.location.href = "./encontreUnaMascota.html?id=-1"
+}
