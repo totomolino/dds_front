@@ -20,7 +20,7 @@ var app = new Vue({
     },
     created(){
         var idSesion = localStorage.getItem("IDSESION") //recupera ID
-        fetch("http://localhost:4567/patitas/duenio/mascotas", {
+        fetch("https://patitasfront.herokuapp.com//patitas/duenio/mascotas", {
             headers: {
                 "Authorization": idSesion //se envia el IDSESION para identificar al usuario en backend
             }
