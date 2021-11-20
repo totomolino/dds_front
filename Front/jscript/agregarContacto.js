@@ -26,9 +26,7 @@ var app = new Vue({
                 if(val == true){ //APRETA OKAY                
                     document.getElementById("agregarContacto").click();
                 }else{
-                    if(this.tipo == "RESCATISTA"){
-                        document.getElementById("rescatista").click();    
-                    }else document.getElementById("index").click();
+                    document.getElementById("index").click();
                 }
             } else {
                 alert("TENES QUE COMPLETAR TODOS LOS CAMPOS")

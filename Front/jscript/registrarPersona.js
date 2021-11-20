@@ -56,9 +56,6 @@ var app = new Vue({
                 localStorage.setItem("tipo", this.tipo)
                 document.getElementById("agregarContacto").click();
              }else{
-                if(this.tipo == "RESCATISTA"){
-                    document.getElementById("rescatista").click();    
-                }else
                     document.getElementById("index").click();
              }
 

@@ -17,9 +17,12 @@ function iniciarSesion(usuarioOemail, contrasenia){
 
 }
 
-function agarrarStatus(status){
+function agarrarStatus(status, tipo){
     if(status == 200){
-        document.getElementById("anchorID").click();
+        if(tipo.toUpperCase() == "RESCATISTA"){
+            document.getElementById("anchorID2").click();
+        }
+        else document.getElementById("anchorID").click();
     }
     else{
         alert("Usuario o contrasenia incorrecto");
@@ -59,7 +62,7 @@ var app = new Vue({
         .then(datos => {
             localStorage.setItem("IDSESION", datos.idSesion)
             localStorage.setItem("TIPO", datos.tipo)
-            agarrarStatus(status)                
+            agarrarStatus(status, datos.tipo)                
         })
         
         }
