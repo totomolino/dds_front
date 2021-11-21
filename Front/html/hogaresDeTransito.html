@@ -123,9 +123,10 @@
                                         </th>
                                         <td>
                                             <div class="texto">
-                                                <p v-if= hogar.admisiones.perro >perro</p>
-                                                <p v-if="hogar.admisiones.gato">-</p>
-                                                <p v-if="hogar.admisiones.gato">gato</p>
+                                                <p v-if= hogar.admisiones.perros >Perros</p>
+                                                <p v-if= "!hogar.admisiones.perros && !hogar.admisiones.gatos" >No acepta nada</p>
+                                                <p v-if= "hogar.admisiones.perros && hogar.admisiones.gatos" > - </p>
+                                                <p v-if= hogar.admisiones.gatos >Gatos</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -140,7 +141,8 @@
                                         </th>
                                         <td>
                                             <div class="texto">
-                                                <p>Si</p>
+                                                <p v-if="hogar.patio">SI</p>
+                                                <p v-else>NO</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -155,7 +157,7 @@
                                         </th>
                                         <td>
                                             <div class="texto">
-                                                <p>6</p>
+                                                <p>{{hogar.capacidad}}</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -165,12 +167,12 @@
                                                 <div class="icon">
                                                     <i class="fas fa-paw"></i>
                                                 </div>
-                                                <p>Ocupados:</p>
+                                                <p>Lugar disponible:</p>
                                             </div>
                                         </th>
                                         <td>
                                             <div class="texto">
-                                                <p>2</p>
+                                                <p>{{hogar.lugares_disponibles}}</p>
                                             </div>
                                         </td>
                                     </tr>
@@ -184,7 +186,7 @@
                                     <tr>
                                         <td colspan="2" class="caracteristicaTD">
                                             <div class="texto">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non esse magnam labore ab ex aperiam voluptate dicta cupiditate et quasi.</p>
+                                                <p v-for="carac in hogar.caracteristicas"> - {{carac}}</p>                                                                                                
                                             </div>
                                         </td>
                                     </tr>
