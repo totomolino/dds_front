@@ -19,12 +19,12 @@ var app = new Vue({
         }
     },
     created(){
-        var idSesion = localStorage.getItem("IDSESION") //recupera ID
+        var idSesion = localStorage.getItem("IDSESION") 
         fetch("http://localhost:4567/patitas/duenio/mascotas", {
             headers: {
-                "Authorization": idSesion //se envia el IDSESION para identificar al usuario en backend
+                "Authorization": idSesion 
             }
-        }) //~(°-°~) ~(°-°)~ (~°-°)~
+        })
             .then(response => response.json())
             .then(data => {
                 this.mascotas = data.mascotas

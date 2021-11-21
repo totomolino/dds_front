@@ -1,14 +1,14 @@
 var app = new Vue({
     el: "#vueAdop",
     data: {                
-        mascotas:[]
+        publicaciones:[]
     },
     methods: {
         getFoto: function(index){
 
-            var mascota = this.mascotas[index]
+            var publicacion = this.publicaciones[index]
 
-            var foto = mascota.fotoAnimales[0]
+            var foto = publicacion.mascota.fotos[0]
 
 
             if(foto == null){
@@ -19,17 +19,21 @@ var app = new Vue({
         }
     },
     created(){
-        var idSesion = localStorage.getItem("IDSESION") //recupera ID
-        fetch("http://localhost:4567/patitas/duenio/mascotas", {
-            headers: {
-                "Authorization": idSesion //se envia el IDSESION para identificar al usuario en backend
-            }
-        }) //~(°-°~) ~(°-°)~ (~°-°)~
-            .then(response => response.json())
+        var status
+        fetch("http://localhost:4567/patitas/publicacion/adopcion") 
+            .then(response =>{
+                status = response.status
+                return response.json()})
             .then(data => {
-                this.mascotas = data.mascotas
-                console.log(this.mascotas)
-            })
-                                                                                                                     
+                error(status, data.mensaje)
+                this.publicaciones = data.publicaciones
+            })                                                                                                                     
     }     
 })
+
+function error(status, mensaje){
+    if(status == 400 || status == 500){
+        alert(mensaje)
+        return;
+    }
+}

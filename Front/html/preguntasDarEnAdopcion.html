@@ -110,7 +110,7 @@
         </div>
 
         <form
-          id = "appVueRegistroMasc" 
+          id = "vuePregDarAdop" 
           onsubmit="return false" 
           autocomplete="on"
           target="_blank"
@@ -249,7 +249,8 @@
             </div>
             <br>
             <!--button class="boton-enviar" type="submit">Enviar</button-->
-            <a href="adoptar.html" type="submit" class="boton-enviar"> Enviar</a>
+            <button class="boton-enviar" v-on:click="crearPubli()">Enviar</button>            
+            <a id="adoptar" href="adoptar.html" target = "_self" ></a>
           </fieldset>
 
         </section>
@@ -297,8 +298,8 @@
           </section>
       </section>
     </footer>
-    <script type="text/javascript" src="../jscript/menu.js"></script>
-    <script type="text/javascript" src="../jscript/registrarMascota.js"></script>
+    <script type="text/javascript" src="../jscript/menu.js"></script>    
+    <script type="text/javascript" src="../jscript/preguntasDarAdop.js"></script>
     <script type="text/javascript" src="../jscript/user.js"></script>
   </body>
 </html>

@@ -102,12 +102,12 @@
 
             <section class="cards" id="vueAdop" >
 
-                <article class="card" v-for="(mascota, index) in mascotas">
+                <article class="card" v-for="(publicacion, index) in publicaciones">
 
                     <a href="adoptarPerfil.html"> <!-- tarjeta 1 -->
                         <span class="card-header" :style= "getFoto(index)" >
                             <span class="card-title">
-                                <h3>{{mascota.nombre}}</h3>
+                                <h3>{{publicacion.mascota.nombre}}</h3>
                             </span>
                         </span>
 
@@ -118,7 +118,7 @@
                                         <div class="icon">
                                             <i class="fas fa-paw"></i>
                                         </div>
-                                        <p>{{mascota.sexo}}</p>
+                                        <p>{{publicacion.mascota.sexo}}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -126,7 +126,7 @@
                                         <div class="icon">
                                             <i class="fas fa-paw"></i>
                                         </div>
-                                        <p>{{mascota.edad}}</p>
+                                        <p>{{publicacion.mascota.edad}}</p>
                                         
                                     </div>
                                 </li>
