@@ -28,7 +28,7 @@ var app = new Vue({
                 }
             }
             var status
-            fetch("http://localhost:4567/patitas/publicacion/adopcion", {
+            fetch("https://patitasback.herokuapp.com/patitas/publicacion/adopcion", {
                 method: "POST",
                 body: JSON.stringify(req)
             })
