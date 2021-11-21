@@ -4,7 +4,7 @@ var status
 
 function iniciarSesion(usuarioOemail, contrasenia){
 
-    fetch("https://patitasfront.herokuapp.com/patitas/iniciarSesion", {
+    fetch("https://patitasback.herokuapp.com/patitas/iniciarSesion", {
 
         method: "POST",
         body: JSON.stringify({
@@ -50,7 +50,7 @@ var app = new Vue({
                 alert("Debes ingresar los campos")
                 return;
             }
-            fetch("https://patitasfront.herokuapp.com/patitas/iniciarSesion", {
+            fetch("https://patitasback.herokuapp.com/patitas/iniciarSesion", {
 
             method: "POST",
             body: JSON.stringify(req)
