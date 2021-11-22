@@ -276,6 +276,55 @@ figure{
 img{
   max-width: 100%; /* stop images from breaking out of their bounding boxes. */
 }
+
+
+.boton-completar{
+  border-radius: 7px;
+  text-align: center;
+  font-size: 15px;
+  font-family: 'Roboto Condensed', sans-serif;
+  border: none;
+  background-color: #C281EA;
+  color: white;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: color 0.5s ease-in-out;
+  transition: border 0.5s ease-in-out;
+}
+
+.boton-completar:hover{
+  color: rgb(220, 165, 236);
+}
+
+.principal{
+  display: flex;
+  flex-direction: column;
+  margin: 5em 7em 5em 7em;
+}
+
+.quieroAdoptar{
+  display: flex;
+  gap: 16vh;
+}
+
+.descripcion{
+  width: 100%;
+  margin-top: 11vh;
+}
+
+.descripcion > h2{
+  font-size: 4vh;
+  font-family: 'Roboto Condensed', sans-serif;
+  color: black;
+  margin-bottom: 5vh;
+}
+
+.descripcion > p{
+  margin-top: 5vh;
+  font-family: 'Abel', sans-serif;
+  font-size: 3vh;
+}
+
 /* FIN MAIN */
 
 /* FOOTER */
