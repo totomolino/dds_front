@@ -10,6 +10,7 @@ var app = new Vue({
         comidaTipo:"",
         medicamentosBool:"",
         medicamentos:"",
+        preguntas:[]
         
     },
     methods: {
@@ -54,6 +55,10 @@ var app = new Vue({
             return;
         }
         else this.mascota = mascId                                                                                                                    
+
+        fetch("https://localhost:4567/patitas/damePreguntas/1")
+        .then(Response => Response.json())
+        .then(algo => {this.preguntas = algo.preguntas})
     }     
 })
 

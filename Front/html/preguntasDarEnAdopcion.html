@@ -116,6 +116,15 @@
           target="_blank"
         >
         <section class="datos-personales">
+          <fieldset v-for="pregunta in preguntas">
+            <input :placeholder="pregunta.clave" type="text" 
+                v-model="nombre"
+                value=""
+                required/>
+          </fieldset>
+        </section>
+
+        <section class="datos-personales">
 
           <fieldset>
            
