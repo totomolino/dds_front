@@ -100,17 +100,17 @@ var app = new Vue({
                 })
         },
 
-         crearRescate: function(params) {
+         crearRescate: function() {
             
          return new Promise(resolve => {  
 
           var req = {
                     //"masc_nombre":this.nombre,-> NULL
-                                        "re//scion_descripcionEstadoospeis.is.cie,
+                    "res_descripcionEstado": this.descripcionEstado,
 
-                        "res_idMascota": this.this.idMasc,                  
-//                                                              
-                fetch("http://localhost:4567/patitas/mascotas", {
+                    "res_idMascota": this.idMasc,                  
+                                                            
+                fetch("http://localhost:4567/patitas/rescate", {
                     method: "POST",
                     body: JSON.stringify(req)
                 })
@@ -125,8 +125,14 @@ var app = new Vue({
     
     
     
-                })
-        ,        ,            }
+                
+
+            })
+            
+        },      
+
+
+
         agregarFotos: function () {
             return new Promise(resolve => {  
                 const lista = this.transformarFotos()
@@ -146,6 +152,7 @@ var app = new Vue({
                 })
                 })
         },
+
         transformarFotos: function(){            
             const lista = this.fotos.map(foto => 
                 ({
@@ -227,6 +234,11 @@ var app = new Vue({
         }
 
     },
+
+
+        // HAY QUE CREAR LA PUBLICACION MASCOTA PERDIDA SI LA MASCOTA NO TIENE CHAPITA -> CON ESTADO "EN REVISION"
+        //CONTACTAR AL DUENIO SI LA MASCOTA TIENE CHAPITA 
+
     created(){
         fetch("http://localhost:4567/patitas/orga/caracteristicas/1" )
         .then(Response => Response.json())

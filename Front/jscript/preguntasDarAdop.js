@@ -10,7 +10,8 @@ var app = new Vue({
         comidaTipo:"",
         medicamentosBool:"",
         medicamentos:"",
-        preguntas:[]
+        preguntas:[],
+        respuestasOrdenadas: []
         
     },
     methods: {
@@ -39,10 +40,48 @@ var app = new Vue({
             .then(data => {
                 error(status,data.mensaje)
                 alert("Se creo la publicacion, sos una pesima persona, tu perrito te va a extraniar")
-                document.getElementById("adoptar").click();
+                
+                return data.objeto.publ_id;
             })
+            .then(publi => {
+                var lista = this.mezclarListas(publi)
+                let req2 = {
+                    "preguntas":lista
+                }
+                fetch("http://localhost:4567/patitas//publicacion/adopcion/preguntas", {
+                    method: "POST",
+                    body: JSON.stringify(req2)
+                })
+                .then(respuesta => respuesta.json())
+            })
+            .then(() => document.getElementById("adoptar").click())            
 
-        }
+
+        },
+        agregarPreguntas: function (event, pos){
+            var preg = event.target.value
+            if(preg != ""){
+                this.respuestasOrdenadas[pos] = preg
+                // console.log(this.preguntasOrdenadas)
+            }
+            else{
+                this.respuestasOrdenadas[pos] = null
+                // console.log(this.preguntasOrdenadas)
+            }
+            
+        },
+        mezclarListas: function(idPubli){
+            const lista = this.respuestas.map((resp, index)=> 
+                ({
+                   preg_publi:{
+                    publi_id: parseInt(idPubli)
+                   },
+                   respuesta: resp,
+                   pregunta: this.preguntas[index]
+                   
+                }))
+                return lista
+        },
         
     },
     created(){

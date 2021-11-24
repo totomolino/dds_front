@@ -1,5 +1,5 @@
 var app = new Vue({
-    el: "#vuePerfilPerdide",
+    el: "#vuePerfiladopcion",
     data: {                
         mascota:"",
         pasear:"",
@@ -14,9 +14,9 @@ var app = new Vue({
         
     },
 
-     //NOSE QUE MIERDA COPIE PERO HAY QUE LLAMAR A LA PUBLICACION ADOPCION PARA MOSTRAR LA INFO DE CADA PERFIL
-     // SI EL DUENIO ENCUENTRA SU MASCOTA -> NOTIFICAR AL RESCATISTA  
-
+    //NOSE QUE MIERDA COPIE PERO HAY QUE LLAMAR A LA PUBLICACION ADOPCION PARA MOSTRAR LA INFO DE CADA PERFIL 
+    // CUANDO EL ADOPTANTE APRETA EL BOTON ADOPTAR -> NOTIFICAR AL DUENIO 
+    
     methods: {
         crearPubli: function(){       
             const idPers = localStorage.getItem("IDPERSONA")     

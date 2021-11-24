@@ -195,12 +195,12 @@
         <section class="datos-personales">
         
           <fieldset>
-            <label v-for= "pregunta in preguntas">
+            <label v-for= "(pregunta, index) in preguntas">
               <input              
               :placeholder="pregunta"
               type="text"
-              name="caracteristicas"
-              v-on:change="agregarCaracteristica($event, 0)"
+              name="respuestas"
+              v-on:change="agregarPreguntas($event, index)"
               />
               <br>
               <br>

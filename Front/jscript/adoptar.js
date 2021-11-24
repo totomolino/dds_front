@@ -28,7 +28,9 @@ var app = new Vue({
                 error(status, data.mensaje)
                 this.publicaciones = data.publicaciones
             })                                                                                                                     
-    }     
+    }   
+    
+    //DE ALGUNA MANERA GUARDAR EL ID DE LA MASCOTA SELECCIONADA EN LA TARJETA PARA DESPUES MOSTRAR EL PERFIL 
 })
 
 function error(status, mensaje){

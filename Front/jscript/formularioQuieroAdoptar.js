@@ -15,6 +15,12 @@ var app = new Vue({
         respuestas:[],
         preguntasOrdenadas:[]
     },
+
+    //PREGUNTAR AL ADOPTANTE POR SUS CARACTERISTICAS Y PREFERENCIAS
+    //CREAR LA PUBLI QUIERO ADOPTAR -> MANDAR MAIL AL ADOPTANTE CON UN LINK 
+    //PARA DARSE DE BAJA DE LAS RECOMENDACIONES
+
+
     methods:{
         registrar: async function(){
             if (validateNotNullImput(this)) {

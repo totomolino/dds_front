@@ -28,7 +28,10 @@ var app = new Vue({
                 error(status, data.mensaje)
                 this.publicaciones = data.publicaciones
             })                                                                                                                     
-    }     
+    }   
+    
+    //DE ALGUNA MANERA GUARDAR EL ID DE LA MASCOTA SELECCIONADA EN LA TARJETA PARA DESPUES MOSTRAR EL PERFIL 
+    //MOSTRAR SOLO LAS PUBLICACIONES QUE ESTAN EN REVISION -> Y SE CREARON EN ENCONTRE MASCOTA 
 })
 
 function error(status, mensaje){
