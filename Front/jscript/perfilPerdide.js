@@ -1,5 +1,5 @@
 var app = new Vue({
-    el: "#vuePregDarAdop",
+    el: "#vuePerfilPerdide",
     data: {                
         mascota:"",
         pasear:"",
@@ -56,7 +56,7 @@ var app = new Vue({
         }
         else this.mascota = mascId                                                                                                                    
 
-        fetch("http://localhost:4567/patitas/damePreguntas/1")
+        fetch("https://localhost:4567/patitas/damePreguntas/1")
         .then(Response => Response.json())
         .then(algo => {this.preguntas = algo.preguntas})
     }     

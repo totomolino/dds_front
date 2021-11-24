@@ -116,51 +116,76 @@
     </nav>
 
     <main>
-        <section class="portada">
-            <section>
-                <div>
-                    <h2>Hola! Ayudame a encontrar mi hogar</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
-                </div>
-            </section>
-        </section>
-      <section class="principal">
-        <section class="descripcionYFoto">
-          <div class="imgDescripcion">
-            <img src="../fotos/golden.jpg" alt="fotoDescripcion" width="100%">
-          </div>
-          <div class="descripcion">
-            <h2>SOBRE MI</h2>
-            <p>Rem necessitatibus atque vitae excepturi eum esse minus nulla ad corporis obcaecati perferendis porro dignissimos repellat debitis maiores. At vel explicabo praesentium dignissimos nulla laboriosam.
-            Est consequatur, autem aut voluptas.</p>
-            <br>
-            <br>
-            <table>
-                <!--tr>
-                    <th>Apodo:</th>
-                    <td>Edgar</td>
-                </tr-->
-                <tr>
-                    <th>Sexo:</th>
-                    <td>Macho</td>
-                </tr>
-                <tr>
-                    <th>Edad:</th>
-                    <td>7 meses</td>
-                </tr>
-                <tr>
-                    <th>Especie:</th>
-                    <td>Perro</td>
-                </tr>
-            </table>
-            <br>
-            <div>
-              <h3>Otras caracteristicas:</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non esse magnam labore ab ex aperiam voluptate dicta cupiditate et quasi.</p>
+      <section class="portada" id = "vuePerfilPerdide">
+          <section>
+              <div>
+                  <h2>Hola! Estoy perdido</h2>
+                  <p>{{rescate.descripcion}}</p>
+              </div>
+          </section>
+      </section>
+    <section class="principal">
+      <section class="descripcionYFoto">
+
+        <!-- CONECTAR FOTOS DEL RESCATEEEEEEE-->
+        
+        <div class="imgDescripcion">
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="../fotos/golden.jpg" class="d-block w-100" alt="fotoDescripcion"  width="100%">
+              </div>
+              <div class="carousel-item">
+                <img src="../fotos/caraPerrito.jpeg" class="d-block w-100" alt="fotoDescripcion" width="100%">
+              </div>
+              <div class="carousel-item">
+                <img src="../fotos/categoriaPerros/perro1.jpg" class="d-block w-100" alt="fotoDescripcion" width="100%">
+              </div>
             </div>
-            <br>
-            <br>
-            <!--a href="formularioAdopcion.html" type="button" class="botonAdoptar">Adoptar</a-->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+
+
+        <br>
+
+        <div class="descripcion">
+          <h2>SOBRE MI</h2>
+          <p>{{mascota.descripcion}}</p>
+          <br>
+          <br>
+          <table>
+              <!--tr>
+                  <th>Apodo:</th>
+                  <td>Edgar</td>
+              </tr>
+              <tr>
+                  <th>Sexo:</th>
+                  <td>Macho</td>
+              </tr>
+              <tr-->
+                  <th>{{mascpta.sexo}}</th>
+                  <!--td>7 meses</td-->
+              </tr>
+              <tr>
+                  <th>{{mascota.especie}}:</th>
+                  <!--td>Gato</td-->
+              </tr>
+          </table>
+          <br>
+          <div>
+            <h3>Otras caracteristicas:</h3>
+            <p> {{mascota.caracteristicas}} </p>
+          </div>
+          <br>
+          <br>
             
             <div class="botonesAprobacion">
               <!--button class="boton-aceptar" v-on:click="aceptar">Aceptar</button-->

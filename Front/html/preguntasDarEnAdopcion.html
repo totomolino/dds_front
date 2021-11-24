@@ -115,14 +115,7 @@
           autocomplete="on"
           target="_blank"
         >
-        <section class="datos-personales">
-          <fieldset v-for="pregunta in preguntas">
-            <input :placeholder="pregunta.clave" type="text" 
-                v-model="nombre"
-                value=""
-                required/>
-          </fieldset>
-        </section>
+      <!-- </fieldset>
 
         <section class="datos-personales">
 
@@ -197,66 +190,21 @@
 
           </fieldset>
 
-        </section>
+        </section> -->
 
         <section class="datos-personales">
         
           <fieldset>
-            <div class="preguntaSiNo">
-              <p> Su mascota toma medicamentos?</p>         
-                <br>
-                <label class="container">Si
-                  <input
-                      type = "radio"
-                      name = "afirmatvio"
-                      value = "respuesta"
-                      v-model = "formasNotif"
-                      autocomplete="on"
-                  />
-                  <span class="checkmark"></span>
-                </label>
-                <br>
-                <label class="container">No
-                  <input
-                  type = "radio"
-                  name = "negativo"
-                  value = "respuesta"
-                  v-model = "formasNotif"
-                  autocomplete="on"
-                  />
-                  <span class="checkmark"></span>
-                </label>      
-                <br>         
-            </div>
-            <br>
-            <label>
-              <input
-                placeholder="Si toma medicamentos, cuales toma?"
-                type="text"
-                name="apodo"
-                v-model="apodo"
-                value=""
+            <label v-for= "pregunta in preguntas">
+              <input              
+              :placeholder="pregunta"
+              type="text"
+              name="caracteristicas"
+              v-on:change="agregarCaracteristica($event, 0)"
               />
+              <br>
+              <br>
             </label>
-
-            <br>
-            <br>
-            <label>
-              <input
-                placeholder="Ingrese la edad"
-                type="text"
-                name="edad"
-                v-model="edad"
-                value=""
-              />
-            </label> 
-            <br>
-            <br>
-            </div>
-            <div>
-              <textarea rows="40" cols="40" placeholder="Quiere realizar alguna aclaración? Escríbala acá" v-model="descripcion" value=""></textarea>
-            </div>
-            <br>
             <!--button class="boton-enviar" type="submit">Enviar</button-->
             <button class="boton-enviar" v-on:click="crearPubli()">Enviar</button>            
             <a id="adoptar" href="adoptar.html" target = "_self" ></a>

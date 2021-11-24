@@ -119,16 +119,18 @@
     </nav>
 
     <main>
-        <section class="portada">
+        <section class="portada" id = "vuePerfilPerdide">
             <section>
                 <div>
                     <h2>Hola! Estoy perdido</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</p>
+                    <p>{{rescate.descripcion}}</p>
                 </div>
             </section>
         </section>
       <section class="principal">
         <section class="descripcionYFoto">
+
+          <!-- CONECTAR FOTOS DEL RESCATEEEEEEE-->
           
           <div class="imgDescripcion">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -159,12 +161,11 @@
 
           <div class="descripcion">
             <h2>SOBRE MI</h2>
-            <p>Rem necessitatibus atque vitae excepturi eum esse minus nulla ad corporis obcaecati perferendis porro dignissimos repellat debitis maiores. At vel explicabo praesentium dignissimos nulla laboriosam.
-            Est consequatur, autem aut voluptas.</p>
+            <p>{{mascota.descripcion}}</p>
             <br>
             <br>
             <table>
-                <tr>
+                <!--tr>
                     <th>Apodo:</th>
                     <td>Edgar</td>
                 </tr>
@@ -172,19 +173,19 @@
                     <th>Sexo:</th>
                     <td>Macho</td>
                 </tr>
-                <tr>
-                    <th>Edad:</th>
-                    <td>7 meses</td>
+                <tr-->
+                    <th>{{mascpta.sexo}}</th>
+                    <!--td>7 meses</td-->
                 </tr>
                 <tr>
-                    <th>Especie:</th>
-                    <td>Gato</td>
+                    <th>{{mascota.especie}}:</th>
+                    <!--td>Gato</td-->
                 </tr>
             </table>
             <br>
             <div>
               <h3>Otras caracteristicas:</h3>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non esse magnam labore ab ex aperiam voluptate dicta cupiditate et quasi.</p>
+              <p> {{mascota.caracteristicas}} </p>
             </div>
             <br>
             <br>
