@@ -1,3 +1,5 @@
+Vue.use(Vuetify);
+
 var app = new Vue({
     el: "#vueAdop",
     data: {                
@@ -39,3 +41,4 @@ function error(status, mensaje){
         return;
     }
 }
+

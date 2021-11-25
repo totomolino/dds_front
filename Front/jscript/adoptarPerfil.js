@@ -1,53 +1,27 @@
 var app = new Vue({
-    el: "#vuePerfiladopcion",
+    el: "#vueAdoptarMasc",
     data: {                
-        mascota:"",
-        pasear:"",
-        veces:"",
-        donde:"",
-        comidaTipo:"",
-        comida:"",
-        comidaTipo:"",
-        medicamentosBool:"",
-        medicamentos:"",
-        preguntas:[]
+        idMascota:"",
+        mascota:{
+            "id":"",
+            "especie":"",
+            "nombre":"",
+            "apodo":"",
+            "edad":"",
+            "sexo": [],
+            "descripcion":"",
+            "tieneChapita":"",
+            "fotos":[]    
+        },
+        preguntas: [],
+        caracteristicas: []
         
     },
 
     //NOSE QUE MIERDA COPIE PERO HAY QUE LLAMAR A LA PUBLICACION ADOPCION PARA MOSTRAR LA INFO DE CADA PERFIL 
     // CUANDO EL ADOPTANTE APRETA EL BOTON ADOPTAR -> NOTIFICAR AL DUENIO 
     
-    methods: {
-        crearPubli: function(){       
-            const idPers = localStorage.getItem("IDPERSONA")     
-            let req = {
-                "publ_organizacion":{
-                    "orga_id":1
-                },
-                "publ_estado":"ACTIVA",
-                "pdar_mascota":{
-                    "masc_id":this.mascota
-                },
-                "pdar_duenio":{
-                    "pers_id":parseInt(idPers)
-                }
-            }
-            var status
-            fetch("http://localhost:4567/patitas/publicacion/adopcion", {
-                method: "POST",
-                body: JSON.stringify(req)
-            })
-            .then(Response => {
-                status = Response.status
-                return Response.json()})
-            .then(data => {
-                error(status,data.mensaje)
-                alert("Se creo la publicacion, sos una pesima persona, tu perrito te va a extraniar")
-                document.getElementById("adoptar").click();
-            })
-
-        }
-        
+    methods: {        
     },
     created(){
         const urlParams = new URLSearchParams(window.location.search);
@@ -58,11 +32,17 @@ var app = new Vue({
             alert("No selecciono ninguna mascota")
             return;
         }
-        else this.mascota = mascId                                                                                                                    
+        else this.idMascota = mascId                                                                                                                    
 
-        fetch("https://localhost:4567/patitas/damePreguntas/1")
+        const url = "http://localhost:4567/patitas/mascota/" + mascId
+        fetch(url)
         .then(Response => Response.json())
-        .then(algo => {this.preguntas = algo.preguntas})
+        .then(algo => {
+            this.mascota = algo.mascota
+            this.preguntas = algo.preguntas
+            this.caracteristicas = algo.caracJSON
+        })
+    
     }     
 })
 
