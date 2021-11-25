@@ -119,7 +119,7 @@
         </div>
     </nav>
 
-    <main>
+    <main >
       <section id= "vueAdoptarMasc">
         <section class="portada">
             <section>
@@ -159,9 +159,10 @@
 
           <div class="descripcion">
             <h2> SOBRE  {{mascota.nombre}}</h2>
-            <!-- <div>  v-for = "caracteristica in caracteristicas"</div>
+            <div  v-for = "caracteristica in caracteristicas"> 
                 <th>{{caracteristica.clave}}</th>
-                <td>{{caracteristica.valor}}</td> -->
+                <td>{{caracteristica.valor}}</td>
+              </div>
             
             <br>
             <br>
@@ -186,7 +187,7 @@
             <br>
             <div>
               <h3> Otras caracteristicas:</h3>
-              <p> COMODIDADES LLENADAS EN PUBLI DAR EN ADOP </p>
+              <!-- <p> COMODIDADES LLENADAS EN PUBLI DAR EN ADOP </p> SON PREGUNTAS -->
             </div>
             <br>
             <br>
