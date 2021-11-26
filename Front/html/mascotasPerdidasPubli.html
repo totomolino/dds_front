@@ -102,12 +102,12 @@
 
             <section class="cards" id="vuePerdidas" >
 
-                <article class="card" v-for="(publi, index) in publicaciones">
+                <article class="card" v-for="(publicacion, index) in publicaciones">
 
                     <a href="PerfilPerdide.html"> 
-                        <span class="card-header" :style= "getFoto(index)" >
+                        <span class="card-header" :style="getFoto(index)">
                             <span class="card-title">
-                                <h3>{{mascota.especie}}</h3>
+                                <!-- <h3>{{publicacion.resc_descripcion}}</h3> -->
                             </span>
                         </span>
 
@@ -118,15 +118,15 @@
                                         <div class="icon">
                                             <i class="fas fa-paw"></i>
                                         </div>
-                                        <p>{{mascota.sexo}}</p>
+                                        <p>{{publicacion.resc_rescatista.nombre}}</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="texto">
                                         <div class="icon">
                                             <i class="fas fa-paw"></i>
-                                        </div>
-                                        <p>{{mascota.edad}}</p>
+                                        </div>                                                                           
+                                        <p>{{publicacion.resc_rescatista.apellido}}</p>
                                         
                                     </div>
                                 </li>

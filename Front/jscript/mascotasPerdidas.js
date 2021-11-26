@@ -8,7 +8,7 @@ var app = new Vue({
 
             var publicacion = this.publicaciones[index]
 
-            var foto = publicacion.mascota.fotos[0]
+            var foto = publicacion.fotos[0]
 
 
             if(foto == null){
