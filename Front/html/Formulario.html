@@ -33,8 +33,7 @@
     >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="../jscript/menu.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">    
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
   
@@ -111,9 +110,9 @@
         </div>
         <br>
         <form
-        id = "appVueEncontreMasc" 
-          action="https://formspree.io/f/xwkawqpa"
-          method="post"
+          id = "appVueEncontreMasc" 
+          onsubmit="return false" 
+          autocomplete="on"
           target="_blank"
         >
           <section class="datos-personales">
@@ -128,9 +127,13 @@
                   name="apodo"
                   v-model="ubicacion"
                   value=""
-                />             
-
-
+                  v-on:change="cargarCoordenadas()"
+                  
+                />
+                <br>             
+                <br>             
+                <iframe width="400" height="250" style="border:0" loading="lazy" scrollig="no"
+                :src="dameMapa()"></iframe>
 
               </label>  
               </div>
@@ -139,19 +142,23 @@
               <div>
                 <textarea placeholder="Descripcion de la mascota" rows="10" cols="40" v-model="descripcionEstado" value="">Inserte la descripcion del encuentro de la mascota aqui ... </textarea>
               </div>
+
+
             </fieldset>
 
             <fieldset class="formulario-foto">
               <h3 class="titulos-form">Foto</h3>
               <input type="file" @change="guardarFotos($event)" accept="image/png,image/jpg, image/jpeg" multiple >
               <br>
-              <button class="boton-registrarse" type="submit">Publicar</button>
+              <button class="boton-registrarse" type="submit" v-on:click="encontrarMascota()">Publicar</button>
             </fieldset>
           </section>
         
         </form>
         
       </section>
+
+
     </main>
 
     <footer>
@@ -195,8 +202,7 @@
       </section>
     </footer>
 
-    <iframe width="600" height="450" style="border:0" loading="lazy" allowfullscreen
-    src="https://www.google.com/maps/embed/v1/search?q=centenario1187&key=AIzaSyB-QpwAUbykuJ2Wc40BKSCdhXMx-hf_0vg"></iframe>
+
     
 
     <script type="text/javascript" src="../jscript/user.js"></script>

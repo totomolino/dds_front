@@ -45,6 +45,7 @@ header{
   
 .header-button:hover{
   background-color: #C281EA;
+  cursor:url(../fotos/patitadeVerdad.ico), auto;
 }
 /* FIN HEADER */
 

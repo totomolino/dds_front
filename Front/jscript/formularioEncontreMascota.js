@@ -24,8 +24,7 @@ var app = new Vue({
         },
         guardarFotos: function (event){
             
-            // Array.from(event.target.files).forEach(foto => this.getBase64(foto))
-            // this.fotos = event.target.files
+
             for(var i = 0; i < event.target.files.length; i++)
             {           
                 var file = event.target.files[i]
@@ -49,6 +48,18 @@ var app = new Vue({
                 }
             })
         },
+        cargarCoordenadas: function(){
+            const url = 'http://dev.virtualearth.net/REST/v1/Locations?key=AgZeMUipIRXUIPXmKhQZ_pKXLnlVTqo6TSilJLLc1DEJIr4oKZzARC1RZY-HZYtD&countryRegion=argentina&addressLine=' + this.ubicacion 
+            fetch(url)
+            .then(Response => Response.json())
+            .then(dea => {
+                const coordenadas = dea.resourceSets[0].resources[0].geocodePoints[0].coordinates
+                this.latitud = coordenadas[0]
+                this.longitud = coordenadas[1]                
+            })
+            
+
+        },
 
         
         // HAY QUE VER SI LA MASCOTA TIENE CHAPITA O NO, SI NO TIENE CHAPITA
@@ -57,16 +68,9 @@ var app = new Vue({
          crearRescate: function() {
             
          return new Promise(resolve => {
-            // var geocoder = new google.maps.Geocoder();
-            // var address = this.ubicacion;
-            
-            // geocoder.geocode( { 'address': address}, function(results, status) {
-            
-            //   if (status == google.maps.GeocoderStatus.OK) {
-            //     this.latitud = results[0].geometry.location.lat();
-            //     this.longitud = results[0].geometry.location.lng();                
-            //   } 
-            // });  
+
+            this.cargarCoordenadas()
+
 
           var req = {
               "resc_descripcionEstado": this.descripcionEstado,
@@ -87,7 +91,7 @@ var app = new Vue({
                     errorRescate(Response.status)
                     return Response.json()})
                 .then(data => {
-                    this.idResc = data.resc_id
+                    this.idResc = data.rescate
                     resolve('se creo el rescate')
                 })
                 
@@ -127,9 +131,16 @@ var app = new Vue({
                 })
             )
             return lista
+        },
+        dameMapa: function(){
+            if(this.ubicacion == "")
+            return "https://maps.google.com/maps?q=buenos%20aires&t=&z=13&ie=UTF8&iwloc=&output=embed"
+
+            else return "https://maps.google.com/maps?q="+ this.ubicacion.replace(' ', '%20') + ',buenos%20aires' + "&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            
         }
     },
-
+    
 
         // HAY QUE CREAR LA PUBLICACION MASCOTA PERDIDA SI LA MASCOTA NO TIENE CHAPITA -> CON ESTADO "EN REVISION"
         //CONTACTAR AL DUENIO SI LA MASCOTA TIENE CHAPITA 
@@ -156,36 +167,8 @@ function error(status, mensaje){
 }
 
 const validateNotNullImput = data => {
-    const {idMasc, idPers, ...elResto} = data._data
+    const {idMasc, idPers,fotos, ...elResto} = data._data
   
     return Object.values(elResto).every( e => e != "") && (fotos.length > 0)
 }
 
-
-function initMap() {
-    const mapOptions = {
-      zoom: 8,
-      center: { lat: -34.397, lng: 150.644 },
-    };
-  
-    map = new google.maps.Map(document.getElementById("map"), mapOptions);
-  
-    const marker = new google.maps.Marker({
-      // The below line is equivalent to writing:
-      // position: new google.maps.LatLng(-34.397, 150.644)
-      position: { lat: -34.397, lng: 150.644 },
-      map: map,
-    });
-    // You can use a LatLng literal in place of a google.maps.LatLng object when
-    // creating the Marker object. Once the Marker object is instantiated, its
-    // position will be available as a google.maps.LatLng object. In this case,
-    // we retrieve the marker's position using the
-    // google.maps.LatLng.getPosition() method.
-    const infowindow = new google.maps.InfoWindow({
-      content: "<p>Marker Location:" + marker.getPosition() + "</p>",
-    });
-  
-    google.maps.event.addListener(marker, "click", () => {
-      infowindow.open(map, marker);
-    });
-  }
