@@ -1,8 +1,11 @@
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;   
+    /* cursor:url("../fotos/patitapro128.png"), url(foo.cur), auto; */
 }
+
+
 
 /* HEADER */
 header{
@@ -126,6 +129,7 @@ form input{
 
 .boton-iniciarSesion:hover{
   background-color: rgb(206, 152, 240);
+  cursor: url(https://cdn-icons.flaticon.com/png/512/4225/premium/4225935.png?token=exp=1637955768~hmac=d73fde89bd1063afefdacef0026ad28b),auto;
 }
 
 .boton-olv-contraseña{
