@@ -84,38 +84,39 @@
                 <i class="far fa-times-circle"></i>
             </button>
             <p>MENU</p>
-            <section class="conj-botones-menu" id = "appVueMenu">
-                <section>
-                  <a href="index.html" type="button" class="boton-menu">INICIO</a>
-                </section>
-                <section>
-                    <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
-                </section>
-                <section>
-                    <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
-                </section>
-                <section>
-                    <a onclick="encontreMascota();" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
-                </section>
-                <section>
-                    <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
-                </section>
-                <section>
-                    <a href="hogaresDeTransito.html" type="button" class="boton-menu"> HOGARES DE TRANSITO</a>
-                </section>
-                <section>
-                    <a href="mascotasPerdidasPubli.html" type="button" class="boton-menu">MASCOTAS PERDIDAS</a>
-                </section>
-                <!-- <section>
-                    <a href="aprobarPublicaciones.html" type="button" class="boton-menu">APROBAR PUBLICACIONES</a>
-                </section>
-                <section>
-                  <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
-                </section> -->
-                <section>
-                    <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
-                </section>
-            </section>
+            <section class="conj-botones-menu" id="appVueMenu">
+              <section >
+                <a href="index.html" type="button" class="boton-menu">INICIO</a>
+              </section>
+              <section v-if="esDuenio()">
+                  <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
+              </section>
+              <section v-if="esDuenio()">
+                  <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
+              </section>
+
+              <section v-if="esDuenioORescatista()">
+                  <a onclick="encontreMascota();" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
+              </section>                
+              <section v-if="esDuenio()">
+                  <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
+              </section>
+              <section v-if="esDuenioORescatista()"> 
+                  <a href="hogaresDeTransito.html" type="button" class="boton-menu"> HOGARES DE TRANSITO</a>
+              </section>
+              <section>
+                  <a href="mascotasPerdidasPubli.html" type="button" class="boton-menu">MASCOTAS PERDIDAS</a>
+              </section>
+               <section v-if = "esVoluntario()">
+                  <a href="aprobarPublicaciones.html" type="button" class="boton-menu">APROBAR PUBLICACIONES</a>
+              </section>
+              <section v-if = "esAdmin()">
+                <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
+              </section>
+              <section>
+                  <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
+              </section>
+          </section>
         </div>
     </nav>
 
@@ -134,13 +135,10 @@
           
           <div class="imgDescripcion">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner" >                
-                  <!-- <div v-for ="(foto, index) in mascota.fotos" v-if="index == 0" class="carousel-item active" v-else class= "carousel-item"> -->
+              <div class="carousel-inner" >                   
                   <div v-for ="(foto, index) in mascota.fotos" :class="(index == 0) ? 'carousel-item active' : 'carousel-item'" >
                     <img  :src="foto.direccion" class="d-block w-100" alt="fotoDescripcion"  width="100%">
-                  </div>
-                  
-                
+                  </div>              
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -151,43 +149,40 @@
                 <span class="visually-hidden">Next</span>
               </button>
             </div>
-
           </div>
 
 
           <br>
 
           <div class="descripcion">
-            <h2> SOBRE  {{mascota.nombre}}</h2>
-            <div  v-for = "caracteristica in caracteristicas"> 
-                <th>{{caracteristica.clave}}</th>
-                <td>{{caracteristica.valor}}</td>
-              </div>
-            
-            <br>
+            <h2> Sobre  {{mascota.nombre}}</h2>
             <br>
             <table>
                 <tr>
-                    <th>Apodo:</th>
+                    <th>apodo:</th>
                     <td>{{mascota.apodo}}</td>
                 </tr>
                 <tr>
-                    <th>Sexo:</th>
+                    <th>sexo:</th>
                     <td>{{mascota.sexo}}</td>
                 </tr>
                 <tr>
-                    <th>Edad:</th>
+                    <th>edad:</th>
                     <td>{{mascota.edad}}</td>
                 </tr>
                 <tr>
-                    <th>Especie:</th>
+                    <th>especie:</th>
                     <td>{{mascota.especie}}</td>
+                </tr>
+                <tr v-for = "caracteristica in caracteristicas"> 
+                  <th>{{caracteristica.clave}}:</th>
+                  <td>{{caracteristica.valor}}</td>
                 </tr>
             </table>
             <br>
             <div>
               <h3> Otras caracteristicas:</h3>
-              <!-- <p> COMODIDADES LLENADAS EN PUBLI DAR EN ADOP </p> SON PREGUNTAS -->
+              <p v-for= "pregunta in preguntas">{{pregunta.pregunta}}: {{pregunta.respuesta}} </p>
             </div>
             <br>
             <br>

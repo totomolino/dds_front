@@ -53,34 +53,35 @@
                 <i class="far fa-times-circle"></i>
             </button>
             <p>MENU</p>
-            <section class="conj-botones-menu">
-                <section>
+            <section class="conj-botones-menu" id="appVueMenu">
+                <section >
                   <a href="index.html" type="button" class="boton-menu">INICIO</a>
                 </section>
-                <section>
+                <section v-if="esDuenio()">
                     <a href="adoptar.html" type="button" class="boton-menu">ADOPTAR</a>
                 </section>
-                <section>
+                <section v-if="esDuenio()">
                     <a href="darEnAdopcion.html" type="button" class="boton-menu">DAR EN ADOPCION</a>
                 </section>
-                <section>
+
+                <section v-if="esDuenioORescatista()">
                     <a onclick="encontreMascota();" type="button" class="boton-menu">ENCONTRE A UNA MASCOTA</a>
+                </section>                
+                <section v-if="esDuenio()">
+                    <a href="registrarMascota.html" type="button" class="boton-menu">REGITSTRAR MASCOTA</a>
                 </section>
-                <section>
-                    <a href="registrarMascota.html" type="button" class="boton-menu">REGISTRAR MASCOTA</a>
-                </section>
-                <section>
+                <section v-if="esDuenioORescatista()"> 
                     <a href="hogaresDeTransito.html" type="button" class="boton-menu"> HOGARES DE TRANSITO</a>
                 </section>
                 <section>
                     <a href="mascotasPerdidasPubli.html" type="button" class="boton-menu">MASCOTAS PERDIDAS</a>
                 </section>
-                <!-- <section>
+                 <section v-if = "esVoluntario()">
                     <a href="aprobarPublicaciones.html" type="button" class="boton-menu">APROBAR PUBLICACIONES</a>
                 </section>
-                <section>
+                <section v-if = "esAdmin()">
                   <a href="administrador.html" type="button" class="boton-menu">CONFIGURAR PARAMETROS</a>
-                </section> -->
+                </section>
                 <section>
                     <a href="iniciarSesion.html" type="button" class="boton-menu">CERRAR SESION</a>
                 </section>
