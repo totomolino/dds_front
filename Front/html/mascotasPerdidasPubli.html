@@ -102,7 +102,7 @@
 
             <section class="cards" id="vuePerdidas" >
 
-                <article class="card" v-for="(publicacion, index) in publicaciones">
+                <article class="card" v-for="(publicacion, index) in publicaciones" v-if="publicacion.estado != 'REVISION'">
 
                     <a href="PerfilPerdide.html"> 
                         <span class="card-header" :style="getFoto(index)">
