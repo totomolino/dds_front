@@ -15,12 +15,63 @@ var app = new Vue({
                 
                 await this.crearRescate()
                 await this.agregarFotos()
+                if(this.idMasc == -1){
+                    await this.crearPubli()
+                }
+                else{
+                    await this.notificarDuenio()
+                }
                 alert("SE COMPLETO EL FORMULARIO CORRECTAMENTE")
                 document.getElementById("volverInicio").click();
                 
             } else {
                 alert("TENES QUE COMPLETAR TODOS LOS CAMPOS")
             };
+        },
+        crearPubli: function(){
+            return new Promise((resolve, reject) => {
+
+                const req = {
+                    "pper_rescate":{
+                        "resc_id":parseInt(this.idResc),
+                    },
+                    "publ_organizacion":{
+                        "orga_id":1,
+                    },
+                    "publ_estado":'REVISION'
+                }
+                
+                fetch("http://localhost:4567/patitas/publicacion/perdida", {
+                    method: "POST",
+                    body: JSON.stringify(req)
+                })
+                .then(Response => {
+                    error(Response.status, "No se creo la publicacion")
+                    return Response.json()
+                })
+                .then(data => {resolve(data.mensaje)})
+
+            })
+        },
+        notificarDuenio: function(){
+            return new Promise((resolve, reject) => {
+
+                const req = {
+                    "mascota":parseInt(this.idMasc)
+                }
+                
+                fetch("http://localhost:4567/patitas/rescate/duenio",{
+                    method: "POST",
+                    body: JSON.stringify(req)
+                })
+                .then(Response => {
+                    error(Response.status, "No se notifico al duenio")
+                    return Response.json()
+                })
+                .then(data => {resolve(data.mensaje)})
+
+
+            })
         },
         guardarFotos: function (event){
             
