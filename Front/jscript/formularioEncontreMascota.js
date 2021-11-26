@@ -59,11 +59,8 @@ var app = new Vue({
             })
             
 
-        },
+        },       
 
-        
-        // HAY QUE VER SI LA MASCOTA TIENE CHAPITA O NO, SI NO TIENE CHAPITA
-        // HAY QUE CREAR LA MASCOTA, SI TIENE HAY LA MASCOTA YA ESTA CREADA
 
          crearRescate: function() {
             
