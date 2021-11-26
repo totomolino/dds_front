@@ -26,7 +26,7 @@ var app = new Vue({
                 return response.json()})
             .then(data => {
                 error(status, data.mensaje)
-                this.publicaciones = data.publicaciones
+                this.publicaciones = data
             })                                                                                                                     
     }
     
