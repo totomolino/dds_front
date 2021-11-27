@@ -1,5 +1,5 @@
 var app = new Vue({
-    el: "#vueprobar",
+    el: "#vueAprobar",
     data: {                
         publicaciones:[]
     },
@@ -8,7 +8,7 @@ var app = new Vue({
 
             var publicacion = this.publicaciones[index]
 
-            var foto = publicacion.mascota.fotos[0]
+            var foto = publicacion.fotos[0]
 
 
             if(foto == null){
@@ -16,6 +16,9 @@ var app = new Vue({
             }else
             return 'background-image: url("' + foto.direccion + '")'
 
+        },
+        dameUrl: function(publi){
+            return "perfilPubliRevision.html?id=" + publi
         }
     },
     created(){
@@ -26,12 +29,13 @@ var app = new Vue({
                 return response.json()})
             .then(data => {
                 error(status, data.mensaje)
-                this.publicaciones = data.publicaciones
+                this.publicaciones = data
             })                                                                                                                     
-    }   
+    }
+    
     
     //DE ALGUNA MANERA GUARDAR EL ID DE LA MASCOTA SELECCIONADA EN LA TARJETA PARA DESPUES MOSTRAR EL PERFIL 
-    //MOSTRAR SOLO LAS PUBLICACIONES QUE ESTAN EN REVISION -> Y SE CREARON EN ENCONTRE MASCOTA 
+    // FILTRAR PUBLICACIONES PERDIDAS QUE ESTEN APROBADAS POR LOS VOLUNTARIOS
 })
 
 function error(status, mensaje){

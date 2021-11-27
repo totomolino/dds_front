@@ -1,5 +1,3 @@
-Vue.use(Vuetify);
-
 var app = new Vue({
     el: "#vueAdop",
     data: {                

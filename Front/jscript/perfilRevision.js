@@ -1,16 +1,8 @@
 var app = new Vue({
-    el: "#vuePerfilPerdide",
+    el: "#vuePerfilRevision",
     data: {                
-        mascota:"",
-        pasear:"",
-        veces:"",
-        donde:"",
-        comidaTipo:"",
-        comida:"",
-        comidaTipo:"",
-        medicamentosBool:"",
-        medicamentos:"",
-        preguntas:[]
+        publiId:"",
+        publicacion:""
         
     },
 
@@ -20,51 +12,40 @@ var app = new Vue({
      //SI NO LA APRUEBA NOSE, LOLA
 
     methods: {
-        crearPubli: function(){       
-            const idPers = localStorage.getItem("IDPERSONA")     
-            let req = {
-                "publ_organizacion":{
-                    "orga_id":1
-                },
-                "publ_estado":"ACTIVA",
-                "pdar_mascota":{
-                    "masc_id":this.mascota
-                },
-                "pdar_duenio":{
-                    "pers_id":parseInt(idPers)
-                }
-            }
-            var status
-            fetch("http://localhost:4567/patitas/publicacion/adopcion", {
-                method: "POST",
-                body: JSON.stringify(req)
+        validar: function(){ 
+            
+            fetch("http://localhost:4567/patitas/aprobarPublicacion/" + this.publiId)
+            .then(Response => Response.json())
+            .then(() => {                
+                alert('se creo la publicacion')
             })
-            .then(Response => {
-                status = Response.status
-                return Response.json()})
-            .then(data => {
-                error(status,data.mensaje)
-                alert("Se creo la publicacion, sos una pesima persona, tu perrito te va a extraniar")
-                document.getElementById("adoptar").click();
+            .then(() => {                
+                document.getElementById("publicaciones").click();
             })
 
+
+            
+
+        },
+        denegar: function(){
+            document.getElementById("inicio").click();
         }
         
     },
     created(){
         const urlParams = new URLSearchParams(window.location.search);
 
-        const mascId = urlParams.get("id");
+        const publiID = urlParams.get("id");
 
-        if(mascId == null){
-            alert("No selecciono ninguna mascota")
+        if(publiID == null){
+            alert("No selecciono ninguna publicacion")
             return;
         }
-        else this.mascota = mascId                                                                                                                    
-
-        fetch("https://localhost:4567/patitas/damePreguntas/1")
+        else this.publiId = publiID;
+        
+        fetch("http://localhost:4567/patitas/damePublicacion/" + publiID)
         .then(Response => Response.json())
-        .then(algo => {this.preguntas = algo.preguntas})
+        .then(algo => {this.publicacion = algo})
     }     
 })
 

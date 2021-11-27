@@ -104,12 +104,12 @@
 
             <section class="cards" id="vueAprobar" >
 
-                <article class="card" v-for="(mascota, index) in mascotas">
+                <article class="card" v-for="(publicacion, index) in publicaciones" v-if="publicacion.estado == 'REVISION'">
 
-                    <a href="perfilPubliRevision.html"> <!-- tarjeta 1 -->
-                        <span class="card-header" :style= "getFoto(index)" >
+                    <a :href="dameUrl(publicacion.id)"  >
+                        <span class="card-header" :style="getFoto(index)">
                             <span class="card-title">
-                                <h3>{{mascota.especie}}</h3>
+                                <!-- <h3>{{publicacion.resc_descripcion}}</h3> -->
                             </span>
                         </span>
 
@@ -120,15 +120,15 @@
                                         <div class="icon">
                                             <i class="fas fa-paw"></i>
                                         </div>
-                                        <p>{{mascota.sexo}}</p>
+                                        <p>{{publicacion.resc_rescatista.nombre}}</p>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="texto">
                                         <div class="icon">
                                             <i class="fas fa-paw"></i>
-                                        </div>
-                                        <p>{{mascota.edad}}</p>
+                                        </div>                                                                           
+                                        <p>{{publicacion.resc_rescatista.apellido}}</p>
                                         
                                     </div>
                                 </li>

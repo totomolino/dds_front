@@ -33,8 +33,7 @@
     >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="../jscript/menu.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">    
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
   </head>
@@ -109,10 +108,10 @@
       </div>
   </nav>
 
-    <main>
+    <main id = "appVueAdmin">
       <section>
         <div class="titulo">
-          <h1>CREAR ADMINISTRADOR</h1>
+          <h1>PARAMETROS</h1>
           <div class="icon-titulo">
             <i class="fas fa-paw"></i>
           </div>
@@ -120,19 +119,21 @@
         
         <br />
         <form
-           id = "appVueAdmin"
-          action="https://formspree.io/f/xwkawqpa"
-          method="post"
-          target="_blank"
+        onsubmit="return false" 
+        autocomplete="on"
+        target="_blank"
+           
         >
           
         <section class="usuario-foto">
             <fieldset>
-              <h3 class="titulos-form">Usuario</h3>
+              <h3 class="titulos-form">Crear administrador</h3>
               <input
                 placeholder="Ingrese su usuario"
                 type="text"
                 name="usuario"
+                v-model="usernameAdmin"
+                value=""
               />
               <br />
               <br />
@@ -141,6 +142,8 @@
                   placeholder="Ingrese su contraseña"
                   type="password"
                   name="contraseña"
+                  v-model="passwordAdmin"
+                  value=""
                 />
               </label>
               <br />
@@ -150,6 +153,8 @@
                   placeholder="Ingrese nuevamente su contraseña"
                   type="password"
                   name="contraseña repetida"
+                  v-model="passwordAdmin"
+                  value=""
                 />
               </label>
 
@@ -160,13 +165,98 @@
                   placeholder="Ingrese su mail"
                   type="texto"
                   name="mail"
+                  v-model="emailAdmin"
+                  value=""
                 />
               </label>
             </fieldset>
 
-            <button class="boton-registrarse" type="submit">Crear</button>
+            <button class="boton-registrarse" type="submit" v-on:click="registrarAdmin">Crear</button>
           </section>
             <br/>
+            <form              
+              onsubmit="return false" 
+              autocomplete="on"
+              target="_blank"
+            >
+           
+         <section class="usuario-foto">
+             <fieldset>
+               <h3 class="titulos-form">Crear voluntario</h3>
+               <input
+                 placeholder="Ingrese su usuario"
+                 type="text"
+                 name="usuario"
+                 v-model="usernameVolu"
+                 value=""
+               />
+               <br />
+               <br />
+               <label>
+                 <input
+                   placeholder="Ingrese su contraseña"
+                   type="password"
+                   name="contraseña"
+                   v-model="passwordVolu"
+                   value=""
+                 />
+               </label>
+               <br />
+               <br />
+               <label>
+                 <input
+                   placeholder="Ingrese nuevamente su contraseña"
+                   type="password"
+                   name="contraseña repetida"
+                   v-model="password2Volu"
+                   value=""
+                 />
+               </label>
+ 
+               <br />
+               <br />
+               <label>
+                 <input
+                   placeholder="Ingrese su mail"
+                   type="texto"
+                   name="mail"
+                   v-model="emailVolu"
+                   value=""
+                 />
+               </label>
+               <br />
+               <br />
+               <label>
+                 <input
+                   placeholder="Ingrese el tamanio de fotos"
+                   type="texto"
+                   name="mail"
+                   v-model="tamanioFotosVolu"
+                   value=""
+                 />
+               </label>
+               <br />
+               <br />
+               <label>
+                 <input
+                   placeholder="Ingrese la organizacion"
+                   type="texto"
+                   name="mail"
+                   v-model="voluOrga"
+                   value=""
+                 />
+               </label>
+             </fieldset>
+ 
+             <button class="boton-registrarse" type="submit" v-on:click="registrarVoluntario" >Crear</button>
+           </section>
+            </form>
+           <br>
+
+           <form
+           onsubmit="return false" 
+           autocomplete="on"
+           target="_blank">
             <section>
           
             <fieldset class= "caracteristica">
@@ -242,5 +332,7 @@
       </section>
     </footer>
     <script type="text/javascript" src="../jscript/user.js"></script>
+    <script type="text/javascript" src="../jscript/menu.js"></script>
+    <script type="text/javascript" src="../jscript/administrador.js"></script>
   </body>
 </html>

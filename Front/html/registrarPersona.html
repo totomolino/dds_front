@@ -230,7 +230,7 @@
               <br />
               <br />
               <div class="preguntaDuenioRescatista">
-                <b class="formaNotif">Es duenio o rescatista: </b>
+                <b class="formaNotif">Es duenio o rescatista o adoptante: </b>
                 <br>
                 <br>
                 <label class="container">Duenio
@@ -249,6 +249,17 @@
                     class="radio" 
                     name="tipo" 
                     value="RESCATISTA" 
+                    v-model= "tipo"
+                    autocomplete="on">
+                  <span class="checkmark"></span>
+                </label>
+                <br>
+                <label class="container"> Adoptante
+                  <input 
+                    type="radio" 
+                    class="radio" 
+                    name="tipo" 
+                    value="ADOPTANTE" 
                     v-model= "tipo"
                     autocomplete="on">
                   <span class="checkmark"></span>
