@@ -49,7 +49,6 @@
 
     <!-- FONT DE MENU -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="../jscript/menu.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
   </head>
   
@@ -64,7 +63,7 @@
           <div class="usuario-icon">
               <i class="fas fa-user-circle"></i>
           </div>
-          <div id= appVue>          
+          <div id= appVue class="nombreUsuario">          
             <p>{{nombre}}</p>          
   
           </div>
@@ -119,32 +118,26 @@
         </div>
     </nav>
 
-    <main>
-        <section class="portada" id = "vuePerfilPerdide">
+    <main id = "vuePerfilPerdide">
+        <section class="portada" >
             <section>
                 <div>
                     <h2>Hola! Estoy perdido</h2>
-                    <p>{{rescate.descripcion}}</p>
+                    <!-- <p>{{rescate.descripcion}}</p> -->
                 </div>
             </section>
         </section>
-      <section class="principal">
+      <section class="principal" v-if= 'publicacion != "" '>
         <section class="descripcionYFoto">
 
           <!-- CONECTAR FOTOS DEL RESCATEEEEEEE-->
           
           <div class="imgDescripcion">
             <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <img src="../fotos/golden.jpg" class="d-block w-100" alt="fotoDescripcion"  width="100%">
-                </div>
-                <div class="carousel-item">
-                  <img src="../fotos/caraPerrito.jpeg" class="d-block w-100" alt="fotoDescripcion" width="100%">
-                </div>
-                <div class="carousel-item">
-                  <img src="../fotos/categoriaPerros/perro1.jpg" class="d-block w-100" alt="fotoDescripcion" width="100%">
-                </div>
+              <div class="carousel-inner" >                   
+                  <div v-for ="(foto, index) in publicacion.fotos" :class="(index == 0) ? 'carousel-item active' : 'carousel-item'" >
+                    <img  :src="foto.direccion" class="d-block w-100" alt="fotoDescripcion"  width="100%">
+                  </div>              
               </div>
               <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -161,8 +154,8 @@
           <br>
 
           <div class="descripcion">
-            <h2>SOBRE MI</h2>
-            <p>{{mascota.descripcion}}</p>
+            <h2>Rescate</h2>
+            <p>Descripcion: {{publicacion.resc_descripcion}}</p>
             <br>
             <br>
             <table>
@@ -175,23 +168,24 @@
                     <td>Macho</td>
                 </tr>
                 <tr-->
-                    <th>{{mascpta.sexo}}</th>
-                    <!--td>7 meses</td-->
-                </tr>
-                <tr>
-                    <th>{{mascota.especie}}:</th>
+                  <th>posX: {{publicacion.resc_lugarEncuentroX}}</th>
+                  <!--td>7 meses</td-->
+              </tr>
+              <tr>
+                  <th>posY: {{publicacion.resc_lugarEncuentroY}}:</th>
                     <!--td>Gato</td-->
                 </tr>
             </table>
             <br>
             <div>
-              <h3>Otras caracteristicas:</h3>
-              <p> {{mascota.caracteristicas}} </p>
+              <h3>Datos del rescatista:</h3>
+              <p>Nombre: {{publicacion.resc_rescatista.nombre}} {{publicacion.resc_rescatista.apellido}}</p>
+              <p>Telefono: {{publicacion.resc_rescatista.telefono}}</p>
             </div>
             <br>
             <br>
-            <a type="button" class="botonAdoptar" onclick="perdide()"> Es mío! </a>
-
+            <button type="button" class="botonAdoptar" v-on:click="perdide()"> Es mío! </button>
+            <a id="inicio" href="index.html" target = "_self"></a>
         </div>
          
         </section>
@@ -239,6 +233,8 @@
         </section>
       </footer>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      <script type="text/javascript" src= "../jscript/alertaPerdide.js"></script>
+      <script type="text/javascript" src="../jscript/menu.js"></script>
+      <script type="text/javascript" src="../jscript/user.js"></script>
+      <script type="text/javascript" src= "../jscript/perfilPerdide.js"></script>
     </body>
 </html>

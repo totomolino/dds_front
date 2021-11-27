@@ -14,14 +14,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap"
-      rel="stylesheet"
-    >
-    <!--link
-      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400&display=swap"
-      rel="stylesheet"
-    -->
+
     <!-- PAGINAS ICONOS -->
     <script
       src="https://kit.fontawesome.com/d1f11e4bbc.js"
@@ -32,11 +25,11 @@
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     >
-
-    <!--link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,400;1,300&display=swap" 
-    rel="stylesheet"-->
-    
-   
+    <!-- FONT HEADER BALSAMIQ-->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:ital@1&display=swap"
+      rel="stylesheet"
+    >
   
     <!-- FONT DE REFUGIO DE MASCOTAS -->
     <link href="https://fonts.googleapis.com/css2?family=Rampart+One&display=swap" 
@@ -63,9 +56,8 @@
           <div class="usuario-icon">
               <i class="fas fa-user-circle"></i>
           </div>
-          <div id= appVue>          
+          <div id= appVue class="nombreUsuario">          
             <p>{{nombre}}</p>          
-  
           </div>
         </div>
 
@@ -154,8 +146,8 @@
         <br>
 
         <div class="descripcion">
-          <h2>SOBRE MI</h2>
-          <p>{{publicacion.resc_descripcion}}</p>
+          <h2>Rescate</h2>
+          <p>Descripcion: {{publicacion.resc_descripcion}}</p>
           <br>
           <br>
           <table>

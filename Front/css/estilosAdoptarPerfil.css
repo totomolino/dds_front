@@ -19,6 +19,12 @@ header{
     align-items: center;
 }
 
+.nombreUsuario p{
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 16px;
+  margin-top: 14px;
+}
+
 .logo{
     display: flex;
     align-items: center;
@@ -26,16 +32,12 @@ header{
     padding-left: 40vh;
   }
   
-  
 .usuario{
     display: flex;
     gap: 20px;
     padding-right: 25vh;
-    align-items: center;
-    
+    align-items: center;  
 }
-
-
     
 .usuario-icon{
     font-size: 30px;
@@ -60,7 +62,7 @@ header{
 }
 /* FIN HEADER*/
     
- /* MENU */
+/* MENU */
  #menu2{
     position: absolute;
     left: 150px;

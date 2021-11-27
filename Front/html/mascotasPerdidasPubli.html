@@ -104,7 +104,7 @@
 
                 <article class="card" v-for="(publicacion, index) in publicaciones" v-if="publicacion.estado != 'REVISION'">
 
-                    <a href="PerfilPerdide.html">
+                    <a :href="dameUrl(publicacion.id)">
                         <span class="card-header" :style="getFoto(index)">
                             <span class="card-title">
                                 <!-- <h3>{{publicacion.resc_descripcion}}</h3> -->
@@ -118,7 +118,7 @@
                                         <div class="icon">
                                             <i class="fas fa-paw"></i>
                                         </div>
-                                        <p>{{publicacion.resc_rescatista.nombre}}</p>
+                                        <p>{{publicacion.resc_descripcion}}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -126,8 +126,12 @@
                                         <div class="icon">
                                             <i class="fas fa-paw"></i>
                                         </div>                                                                           
-                                        <p>{{publicacion.resc_rescatista.apellido}}</p>
-                                        
+                                        <p>Rescatista: </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">                                                                       
+                                        <p id="nombreResc">{{publicacion.resc_rescatista.nombre}} {{publicacion.resc_rescatista.apellido}}</p>
                                     </div>
                                 </li>
                             </ul>

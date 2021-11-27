@@ -35,6 +35,11 @@ header{
     
 }
 
+.nombreUsuario p{
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 16px;
+  margin-top: 14px;
+}
 
     
 .usuario-icon{

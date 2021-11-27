@@ -20,6 +20,12 @@ header{
   align-items: center;
 }
 
+.nombreUsuario p{
+  font-family: 'Balsamiq Sans', cursive;
+  font-size: 16px;
+  margin-top: 14px;
+}
+
 .logo{
   display: flex;
   align-items: center;
@@ -33,11 +39,9 @@ header{
   gap: 20px;
   padding-right: 25vh;
   align-items: center;
-  
+  width: 60vh;
 }
 
-
-  
 .usuario-icon{
   font-size: 30px;
 }

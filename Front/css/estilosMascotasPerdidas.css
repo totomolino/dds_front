@@ -259,6 +259,10 @@ ul{
   color: white;
   text-transform: uppercase;
 }
+
+#nombreResc{
+  margin-left: 4.5vh;
+}
   
 .icon{
   font-size: 2.5vh;

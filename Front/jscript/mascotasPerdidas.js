@@ -16,6 +16,9 @@ var app = new Vue({
             }else
             return 'background-image: url("' + foto.direccion + '")'
 
+        },
+        dameUrl: function(publi){
+            return "perfilPerdide.html?id=" + publi
         }
     },
     created(){
