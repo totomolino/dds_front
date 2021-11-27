@@ -146,38 +146,42 @@
         <br>
 
         <div class="descripcion">
-          <h2>Rescate</h2>
-          <p>Descripcion: {{publicacion.resc_descripcion}}</p>
-          <br>
-          <br>
-          <table>
-              <!--tr>
-                  <th>Apodo:</th>
-                  <td>Edgar</td>
-              </tr>
-              <tr>
-                  <th>Sexo:</th>
-                  <td>Macho</td>
-              </tr>
-              <tr-->
-                  <th>posX: {{publicacion.resc_lugarEncuentroX}}</th>
-                  <!--td>7 meses</td-->
-              </tr>
-              <tr>
-                  <th>posY: {{publicacion.resc_lugarEncuentroY}}:</th>
-                  <!--td>Gato</td-->
-              </tr>
-          </table>
-          <br>
-          <div>
-            <h3>Datos del rescatista:</h3>
-            <p>Nombre: {{publicacion.resc_rescatista.nombre}} {{publicacion.resc_rescatista.apellido}}</p>
-            <p>Telefono: {{publicacion.resc_rescatista.telefono}}</p>
-            
-          </div>
-          <br>
-          <br>
-            
+          <h2>RESCATE</h2>
+            <br>
+            <h3>DESCRIPCION: </h3>
+            <p>{{publicacion.resc_descripcion}}</p>
+            <br>
+            <table>
+                <tr>
+                  <th>PosX:</th>
+                  <td>{{publicacion.resc_lugarEncuentroX}}</td>
+                </tr>
+                <tr>
+                  <th>PosY:</th>
+                  <td>{{publicacion.resc_lugarEncuentroY}}</td>
+                </tr>
+              </table>
+              <br>
+              <br>
+              <div>
+                <h3>DATOS DEL RESCATISTA:</h3>
+                <table>
+                <tr>
+                  <th>Nombre: </th>
+                  <td>{{publicacion.resc_rescatista.nombre}}</td>
+                </tr>
+                <tr>
+                  <th>Apellido: </th>
+                  <td>{{publicacion.resc_rescatista.apellido}}</td>
+                </tr>
+                <tr>
+                  <th>Telefono: </th>
+                  <td>{{publicacion.resc_rescatista.telefono}}</td>
+                </tr>
+              </table>
+            </div>
+            <br>
+            <br>
             <div class="botonesAprobacion">
               <button class="boton-aceptar" v-on:click="validar">Aceptar</button>              
               <a id="publicaciones" href="mascotasPerdidasPubli.html" target = "_self"></a>
@@ -185,6 +189,7 @@
               <button class="boton-denegar" v-on:click="denegar">Denegar</button>
               <a id="inicio" href="index.html" target = "_self"></a>
             </div>
+          </div> 
         </div>
         </section>
       </section>

@@ -149,38 +149,42 @@
               </button>
             </div>
           </div>
-
-
+          
           <br>
-
           <div class="descripcion">
-            <h2>Rescate</h2>
-            <p>Descripcion: {{publicacion.resc_descripcion}}</p>
+            <h2>RESCATE</h2>
             <br>
+            <h3>DESCRIPCION: </h3>
+            <p>{{publicacion.resc_descripcion}}</p>
             <br>
             <table>
-                <!--tr>
-                    <th>Apodo:</th>
-                    <td>Edgar</td>
+                <tr>
+                  <th>PosX:</th>
+                  <td>{{publicacion.resc_lugarEncuentroX}}</td>
                 </tr>
                 <tr>
-                    <th>Sexo:</th>
-                    <td>Macho</td>
+                  <th>PosY:</th>
+                  <td>{{publicacion.resc_lugarEncuentroY}}</td>
                 </tr>
-                <tr-->
-                  <th>posX: {{publicacion.resc_lugarEncuentroX}}</th>
-                  <!--td>7 meses</td-->
-              </tr>
-              <tr>
-                  <th>posY: {{publicacion.resc_lugarEncuentroY}}:</th>
-                    <!--td>Gato</td-->
+              </table>
+              <br>
+              <br>
+              <div>
+                <h3>DATOS DEL RESCATISTA:</h3>
+                <table>
+                <tr>
+                  <th>Nombre: </th>
+                  <td>{{publicacion.resc_rescatista.nombre}}</td>
                 </tr>
-            </table>
-            <br>
-            <div>
-              <h3>Datos del rescatista:</h3>
-              <p>Nombre: {{publicacion.resc_rescatista.nombre}} {{publicacion.resc_rescatista.apellido}}</p>
-              <p>Telefono: {{publicacion.resc_rescatista.telefono}}</p>
+                <tr>
+                  <th>Apellido: </th>
+                  <td>{{publicacion.resc_rescatista.apellido}}</td>
+                </tr>
+                <tr>
+                  <th>Telefono: </th>
+                  <td>{{publicacion.resc_rescatista.telefono}}</td>
+                </tr>
+              </table>
             </div>
             <br>
             <br>

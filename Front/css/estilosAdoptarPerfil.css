@@ -161,7 +161,7 @@ header{
   .cruz i{
     font-size: 30px;
   }
-  /* FIN MENU */
+/* FIN MENU */
   
 /* MAIN */
 .portada{
@@ -209,6 +209,10 @@ header{
     flex-direction: column;
     padding: 13vh 20vh 5vh 20vh;
 }
+
+h2{
+  text-transform: uppercase;
+}
   
 .descripcionYFoto{
     display: flex;
@@ -253,6 +257,14 @@ td{
 
 th{
     text-align: left ;
+}
+
+th::first-letter{
+  text-transform: uppercase;
+}
+
+td::first-letter{
+  text-transform: uppercase;
 }
 
 h3{

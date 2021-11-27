@@ -120,7 +120,7 @@
                                         <div class="icon">
                                             <i class="fas fa-paw"></i>
                                         </div>
-                                        <p>{{publicacion.resc_rescatista.nombre}}</p>
+                                        <p>{{publicacion.resc_descripcion}}</p>
                                     </div>
                                 </li>
                                 <li>
@@ -128,8 +128,12 @@
                                         <div class="icon">
                                             <i class="fas fa-paw"></i>
                                         </div>                                                                           
-                                        <p>{{publicacion.resc_rescatista.apellido}}</p>
-                                        
+                                        <p>Rescatista: </p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="texto">                                                                       
+                                        <p id="nombreResc">{{publicacion.resc_rescatista.nombre}} {{publicacion.resc_rescatista.apellido}}</p>
                                     </div>
                                 </li>
                             </ul>

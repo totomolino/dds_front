@@ -188,7 +188,7 @@ nav p{
 }
 
 .card{
-	background: rgb(236, 188, 253);
+	background: rgb(173, 80, 207);
 	margin-bottom: 2em;
 	width: 32%;
   border-radius: 5%;
@@ -201,6 +201,10 @@ nav p{
   margin-top: 5%;
   padding: 1.5%;
   box-sizing: border-box;
+}
+
+#nombreResc{
+  margin-left: 4.5vh;
 }
 
 a{

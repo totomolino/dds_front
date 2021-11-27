@@ -193,13 +193,11 @@
     gap: 10vh;
   }
   
-  
   form fieldset{
     border: 2px solid #A632D4;
     border-radius: 15px;
     padding: 25px;
-    height: 66vh;
-
+    margin-bottom: 3vh;
   }
   
   .titulos-form{
@@ -208,14 +206,15 @@
   }
   
   form input{
-    width: 300px;
-    height: 45px;
+    width: 400px;
+    height: 50px;
     border: none;
     background-color: #f5f5f5;
     color: #757575;
     border-radius: 15px;
     padding: 10px 12px;
-    font-size: 16px;
+    font-size: 2.5vh;
+    margin-bottom: 1vh;
   }
   
   textarea{

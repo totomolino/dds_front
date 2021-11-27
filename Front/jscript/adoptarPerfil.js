@@ -23,7 +23,7 @@ var app = new Vue({
     
     methods: {          
         adoptarMascota: function(){
-            const url = "http://localhost:4567/patitas/mascota/adoptar/" + this.idMascota
+            const url = "http://localhost:4567/patitas/mascota/adoptar"
             const req = {
                 "mascota": this.idMascota,
                 "adoptante": localStorage.getItem("IDPERSONA")

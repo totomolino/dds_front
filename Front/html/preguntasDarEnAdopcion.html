@@ -116,82 +116,7 @@
           autocomplete="on"
           target="_blank"
         >
-      <!-- </fieldset>
 
-        <section class="datos-personales">
-
-          <fieldset>
-           
-            <h3 class="titulos-form">Sobre tu mascota</h3>
-           
-
-            <div class="preguntaSiNo">
-              <p> Su mascota suele salir a pasear?</p>         
-                <br>
-                <label class="container">Si
-                  <input
-                      type = "radio"
-                      name = "respuesta"
-                      value = "respuesta"
-                      v-model = "formasNotif"
-                      autocomplete="on"
-                  />
-                  <span class="checkmark"></span>
-                </label>
-                <br>
-                <label class="container">No
-                  <input
-                  type = "radio"
-                  name = "respuesta"
-                  value = "respuesta"
-                  v-model = "formasNotif"
-                  autocomplete="on"
-                  />
-                  <span class="checkmark"></span>
-                </label>      
-                <br>         
-            </div>
-            <label>
-              <input
-                placeholder="Si respondio si, cuantas veces al dia?"
-                type="number"
-                name="nombre"
-                v-model="cantVeces"
-                value=""
-                required
-              />
-            </label>
-            <br>
-            <br>
-            <label>
-              <input placeholder="Si respondio si, a donde?" type="text" name="lugarPaseo"
-                v-model="nombre"
-                value=""
-                required/>
-            </label>
-            <br><br>
-            <div id="selectores">
-              <select name="selector" v-model="sexo">
-                <option disabled value="">Comida</option>
-                <option value="Balanceada"> Balanceada </option>
-                <option value="Casera">Casera</option>
-              </select>
-              
-            </div>
-            <br>
-            <label>
-              <input
-                placeholder="Cual es su comida favorita?"
-                type="text"
-                name="tipoBalanceada"
-                v-model="apodo"
-                value=""
-              />
-            </label>
-
-          </fieldset>
-
-        </section> -->
 
         <section class="datos-personales">
         
@@ -204,6 +129,7 @@
               v-on:change="agregarPreguntas($event, index)"
               />
               <br>
+              
               <br>
             </label>
             <!--button class="boton-enviar" type="submit">Enviar</button-->
