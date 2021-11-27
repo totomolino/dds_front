@@ -192,8 +192,9 @@ header{
     gap: 10vh;
   }
   
-  .datosPersonales{
+  .datos-personales{
     display: flex;
+    gap: 5vh;
   }
 
   form fieldset{
@@ -264,10 +265,6 @@ header{
     border-radius: 15px;
     padding: 10px 12px;
     font-size: 16px;
-  }
-  
-  .formulario-foto{
-    margin-top: 35px;
   }
   
   .boton-registrarse{

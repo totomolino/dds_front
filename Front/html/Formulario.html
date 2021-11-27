@@ -116,43 +116,43 @@
           target="_blank"
         >
           <section class="datos-personales">
-            <fieldset>
-              <h3 class="titulos-form">Sobre la mascota perdida</h3>
+            <section>
+              <fieldset>
+                <h3 class="titulos-form">Sobre la mascota perdida</h3>
+                <label>
+              
+                  <input
+                    placeholder="Ingrese la ubicacion del encuentro"
+                    type="text"
+                    name="apodo"
+                    v-model="ubicacion"
+                    value=""
+                    v-on:change="cargarCoordenadas()"
+              
+                  />
+                  <br>
+                  <br>
+                  <iframe width="400" height="250" style="border:0" loading="lazy" scrollig="no"
+                  :src="dameMapa()"></iframe>
+                </label>
+                </div>
+                <br>
+                <br>
+                <div>
+                  <textarea placeholder="Descripcion de la mascota" rows="10" cols="40" v-model="descripcionEstado" value="">Inserte la descripcion del encuentro de la mascota aqui ... </textarea>
+                </div>
+              </fieldset>
+            </section>
 
-              <label>                 
-                
-                <input
-                  placeholder="Ingrese la ubicacion del encuentro"
-                  type="text"
-                  name="apodo"
-                  v-model="ubicacion"
-                  value=""
-                  v-on:change="cargarCoordenadas()"
-                  
-                />
-                <br>             
-                <br>             
-                <iframe width="400" height="250" style="border:0" loading="lazy" scrollig="no"
-                :src="dameMapa()"></iframe>
-
-              </label>  
-              </div>
-              <br>            
-              <br>            
-              <div>
-                <textarea placeholder="Descripcion de la mascota" rows="10" cols="40" v-model="descripcionEstado" value="">Inserte la descripcion del encuentro de la mascota aqui ... </textarea>
-              </div>
-
-
-            </fieldset>
-
-            <fieldset class="formulario-foto">
-              <h3 class="titulos-form">Foto</h3>
-              <input type="file" @change="guardarFotos($event)" accept="image/png,image/jpg, image/jpeg" multiple >
-              <br>
-              <button class="boton-registrarse" type="submit" v-on:click="encontrarMascota()">Publicar</button>
-              <a id="volverInicio" href="index.html" target = "_self"></a>
-            </fieldset>
+            <section>
+              <fieldset class="formulario-foto">
+                <h3 class="titulos-form">Foto</h3>
+                <input type="file" @change="guardarFotos($event)" accept="image/png,image/jpg, image/jpeg" multiple >
+                <br>
+                <button class="boton-registrarse" type="submit" v-on:click="encontrarMascota()">Publicar</button>
+                <a id="volverInicio" href="index.html" target = "_self"></a>
+              </fieldset>
+            </section>
           </section>
         
         </form>
