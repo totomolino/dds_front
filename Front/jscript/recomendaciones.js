@@ -8,10 +8,22 @@ data: {
 },
 
 methods: {
-    perdide: function(){
-        fetch("http://localhost:4567/patitas/esMia/" + this.publiId)
-        document.getElementById("inicio").click()
-    }            
+    getFoto: function(index){
+
+        var publicacion = this.publicaciones[index]
+
+        var foto = publicacion.fotos[0]
+
+
+        if(foto == null){
+            return "../fotos/caraPerrito.jpeg"
+        }else
+        return 'background-image: url("' + foto.direccion + '")'
+
+    },
+    dameUrl: function(publi){
+        return "perfilPerdide.html?id=" + publi
+    }
 },
 created(){
     const urlParams = new URLSearchParams(window.location.search);

@@ -122,8 +122,8 @@
            
             <h3 class="titulos-form"> Sobre tus preferencias</h3>
       
-            <div id="caracteristicas">
-              <select name="selector" v-on:change="agregarPreguntas($event, 0)">
+            <div id="caracteristicas" v-for="(pref,index) in preguntas">
+              <select name="selector" v-on:change="agregarPreguntas($event, index)">
                 <option value="">Ninguna</option>
                 <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
                 option
@@ -134,64 +134,9 @@
                 name="caracteristicas"
                 v-on:change="agregarCaracteristica($event, 0)"
               />
+              <br>
+              <br>              
             </div>
-            <br>
-            <div id="caracteristicas">
-              <select name="selector" v-on:change="agregarPreguntas($event, 1)">
-                <option value="">Ninguna</option>
-                <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
-                option
-              </select>
-              <input
-                placeholder="Especifique"
-                type="text"
-                name="caracteristicas"
-                v-on:change="agregarCaracteristica($event, 1)"
-              />
-            </div>
-            <br>
-            <div id="caracteristicas">
-              <select name="selector" v-on:change="agregarPreguntas($event, 2)">
-                <option value="">Ninguna</option>
-                <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
-                option
-              </select>
-              <input
-                placeholder="Especifique"
-                type="text"
-                name="caracteristicas"
-                v-on:change="agregarCaracteristica($event, 2)"
-              />
-            </div>
-            <br>
-            <div id="caracteristicas">
-              <select name="selector" v-on:change="agregarPreguntas($event, 3)">
-                <option value="">Ninguna</option>
-                <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
-                option
-              </select>
-              <input
-                placeholder="Especifique"
-                type="text"
-                name="caracteristicas"
-                v-on:change="agregarCaracteristica($event, 3)"
-              />
-            </div>
-            <br>
-            <div id="caracteristicas">
-              <select name="selector" v-on:change="agregarPreguntas($event, 4)">
-                <option value="">Ninguna</option>
-                <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
-                option
-              </select>
-              <input
-                placeholder="Especifique"
-                type="text"
-                name="caracteristicas"
-                v-on:change="agregarCaracteristica($event, 4)"
-              />
-            </div>
-            <br>
           </fieldset>
         </section>
          
@@ -200,10 +145,10 @@
           <fieldset>
 
             <h3 class="titulos-form">Sobre tus comodidades</h3>
-            <div id="caracteristicas">
-              <select name="selector" v-on:change="agregarPreguntas($event, 0)">
+            <div id="caracteristicas" v-for="(como, index) in comodidades">
+              <select name="selector" v-on:change="agregarComodidades($event, index)">
                 <option value="">Ninguna</option>
-                <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
+                <option v-for="clave in comodidades" :value="clave" >{{clave}}</option>
                 option
               </select>
               <input
@@ -212,65 +157,9 @@
                 name="caracteristicas"
                 v-on:change="agregarCaracteristica($event, 0)"
               />
-            </div>
-            <br>
-            <div id="caracteristicas">
-              <select name="selector" v-on:change="agregarPreguntas($event, 1)">
-                <option value="">Ninguna</option>
-                <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
-                option
-              </select>
-              <input
-                placeholder="Especifique"
-                type="text"
-                name="caracteristicas"
-                v-on:change="agregarCaracteristica($event, 1)"
-              />
-            </div>
-            <br>
-            <div id="caracteristicas">
-              <select name="selector" v-on:change="agregarPreguntas($event, 2)">
-                <option value="">Ninguna</option>
-                <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
-                option
-              </select>
-              <input
-                placeholder="Especifique"
-                type="text"
-                name="caracteristicas"
-                v-on:change="agregarCaracteristica($event, 2)"
-              />
-            </div>
-            <br>
-            <div id="caracteristicas">
-              <select name="selector" v-on:change="agregarPreguntas($event, 3)">
-                <option value="">Ninguna</option>
-                <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
-                option
-              </select>
-              <input
-                placeholder="Especifique"
-                type="text"
-                name="caracteristicas"
-                v-on:change="agregarCaracteristica($event, 3)"
-              />
-            </div>
-            <br>
-            <div id="caracteristicas">
-              <select name="selector" v-on:change="agregarPreguntas($event, 4)">
-                <option value="">Ninguna</option>
-                <option v-for="clave in preguntas" :value="clave" >{{clave}}</option>
-                option
-              </select>
-              <input
-                placeholder="Especifique"
-                type="text"
-                name="caracteristicas"
-                v-on:change="agregarCaracteristica($event, 4)"
-              />
-            </div>
-            <br>
-
+              <br>
+              <br>
+            </div>            
           </fieldset>
 
           <section>

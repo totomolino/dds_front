@@ -13,7 +13,10 @@ var app = new Vue({
         idMasc:"",
         preguntas:[],
         respuestas:[],
-        preguntasOrdenadas:[]
+        preguntasOrdenadas:[],
+        comodidades:[],
+        respuestasComo:[],
+        comodidadesOrdenadas:[]
     },
 
     //PREGUNTAR AL ADOPTANTE POR SUS CARACTERISTICAS Y PREFERENCIAS
@@ -75,6 +78,18 @@ var app = new Vue({
             else{
                 this.preguntasOrdenadas [pos] = null
                 console.log(this.preguntasOrdenadas)
+            }
+            
+        },
+        agregarComodidades: function (event, pos){
+            var preg = event.target.value
+            if(preg != ""){
+                this.comodidadesOrdenadas[pos] = preg
+                console.log(this.comodidadesOrdenadas)
+            }
+            else{
+                this.comodidadesOrdenadas [pos] = null
+                console.log(this.comodidadesOrdenadas)
             }
             
         },
@@ -150,6 +165,15 @@ var app = new Vue({
         .then(data => {
             this.preguntas = data.caracteristicas
         })
+        .then(() => {
+            fetch("http://localhost:4567/patitas/damePreguntas/1" )
+            .then(Response => Response.json())
+            .then(data => {
+                this.comodidades = data.preguntas
+            })
+        })
+
+        
     }
     
 })
