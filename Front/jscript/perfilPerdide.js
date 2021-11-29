@@ -13,7 +13,8 @@
         methods: {
             perdide: function(){
                 fetch("https://patitasback.herokuapp.com/patitas/esMia/" + this.publiId)
-                document.getElementById("inicio").click()
+                .then(() => {document.getElementById("inicio").click()})
+                
             }            
         },
         created(){
