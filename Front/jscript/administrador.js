@@ -28,9 +28,18 @@ var app = new Vue({
             await this.crearVoluntario()
             
             alert('SE CREO EL VOLUNTARIO CORRECTAMENTE')
-             
+            document.getElementById("recargar").click()
+
+        }, 
+        registrarAdmin: async function(){            
+
+            await this.crearUsuarioAdmin()
+            
+            alert('SE CREO EL ADMIN CORRECTAMENTE')
+            document.getElementById("recargar").click()
 
         },        
+              
         
         crearUsuarioAdmin: function() {
             return new Promise(resolve => { 
@@ -53,7 +62,7 @@ var app = new Vue({
                 status = Response.status
                 return Response.json()})
             .then(data => {
-                error(status,data.mensaje)                
+                error(status,data.mensaje)                                
                 resolve('se creo el usuario')
                 
             })})
