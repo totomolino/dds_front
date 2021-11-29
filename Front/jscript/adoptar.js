@@ -20,7 +20,7 @@ var app = new Vue({
     },
     created(){
         var status
-        fetch("http://localhost:4567/patitas/publicacion/adopcion") 
+        fetch("https://patitasback.herokuapp.com/patitas/publicacion/adopcion") 
             .then(response =>{
                 status = response.status
                 return response.json()})

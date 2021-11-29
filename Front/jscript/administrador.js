@@ -45,7 +45,7 @@ var app = new Vue({
                 "usu_tipo": "ADMIN"
             }
             var status
-            fetch("http://localhost:4567/patitas/user", {
+            fetch("https://patitasback.herokuapp.com/patitas/user", {
                 method: "POST",
                 body: JSON.stringify(req)
             })
@@ -73,7 +73,7 @@ var app = new Vue({
                 "usu_tipo": "VOLUNTARIO"
             }
             var status
-            fetch("http://localhost:4567/patitas/user", {
+            fetch("https://patitasback.herokuapp.com/patitas/user", {
                 method: "POST",
                 body: JSON.stringify(req)
             })
@@ -99,7 +99,7 @@ var app = new Vue({
                 }
             }
             var status;
-            fetch("http://localhost:4567/patitas/voluntario", {
+            fetch("https://patitasback.herokuapp.com/patitas/voluntario", {
                 method: "POST",
                 body: JSON.stringify(req)
             })
