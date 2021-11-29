@@ -30,7 +30,7 @@ var app = new Vue({
                 }
             }
             var status
-            fetch("http://localhost:4567/patitas/publicacion/adopcion", {
+            fetch("https://patitasback.herokuapp.com/patitas/publicacion/adopcion", {
                 method: "POST",
                 body: JSON.stringify(req)
             })
@@ -48,7 +48,7 @@ var app = new Vue({
                 let req2 = {
                     "preguntas":lista
                 }
-                fetch("http://localhost:4567/patitas//publicacion/adopcion/preguntas", {
+                fetch("https://patitasback.herokuapp.com/patitas//publicacion/adopcion/preguntas", {
                     method: "POST",
                     body: JSON.stringify(req2)
                 })
@@ -95,7 +95,7 @@ var app = new Vue({
         }
         else this.mascota = mascId                                                                                                                    
 
-        fetch("http://localhost:4567/patitas/damePreguntas/1")
+        fetch("https://patitasback.herokuapp.com/patitas/damePreguntas/1")
         .then(Response => Response.json())
         .then(algo => {this.preguntas = algo.preguntas})
     }     

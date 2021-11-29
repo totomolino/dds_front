@@ -76,7 +76,7 @@ var app = new Vue({
                     }    
                 }
     
-                fetch("http://localhost:4567/patitas/mascotas", {
+                fetch("https://patitasback.herokuapp.com/patitas/mascotas", {
                     method: "POST",
                     body: JSON.stringify(req)
                 })
@@ -100,7 +100,7 @@ var app = new Vue({
                     "fotos": lista
                 }
     
-                fetch("http://localhost:4567/patitas/mascotas/fotos", {
+                fetch("https://patitasback.herokuapp.com/patitas/mascotas/fotos", {
                     method: "POST",
                     body: JSON.stringify(req)
                 })
@@ -172,7 +172,7 @@ var app = new Vue({
                     "caracteristicas": lista
                 }
     
-                fetch("http://localhost:4567/patitas/mascotaCarac", {
+                fetch("https://patitasback.herokuapp.com/patitas/mascotaCarac", {
                     method: "POST",
                     body: JSON.stringify(req)
                 })
@@ -192,7 +192,7 @@ var app = new Vue({
 
     },
     created(){
-        fetch("http://localhost:4567/patitas/orga/caracteristicas/1" )
+        fetch("https://patitasback.herokuapp.com/patitas/orga/caracteristicas/1" )
         .then(Response => Response.json())
         .then(data => {
             this.preguntas = data.caracteristicas

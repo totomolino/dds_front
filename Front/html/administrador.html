@@ -152,7 +152,7 @@
                   placeholder="Ingrese nuevamente su contraseña"
                   type="password"
                   name="contraseña repetida"
-                  v-model="passwordAdmin"
+                  v-model="password2Admin"
                   value=""
                 />
               </label>
@@ -170,7 +170,7 @@
               </label>
             </fieldset>
 
-            <button class="boton-registrarse" type="submit" v-on:click="registrarAdmin">Crear</button>
+            <button class="boton-registrarse" type="submit" v-on:click="registrarAdmin()">Crear</button>
           </section>
             <br/>
             <form              
@@ -247,7 +247,7 @@
                </label>
              </fieldset>
  
-             <button class="boton-registrarse" type="submit" v-on:click="registrarVoluntario" >Crear</button>
+             <button class="boton-registrarse" type="submit" v-on:click="registrarVoluntario()" >Crear</button>
            </section>
             </form>
            <br>
@@ -274,6 +274,7 @@
             </fieldset>
             
             <button class="boton-registrarse" type="submit">Agregar</button>
+            <a id="recargar" href="./administrador.html" target = "_self"></a>
             <section>
               
               <img src="../fotos/grupoPerritos.png" alt="dibujo" width="350px">

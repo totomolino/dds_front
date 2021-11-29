@@ -18,12 +18,12 @@ var app = new Vue({
 
         },
         dameUrl: function(publi){
-            return "perfilPerdide.html?id=" + publi
+            return "PerfilPerdide.html?id=" + publi
         }
     },
     created(){
         var status
-        fetch("http://localhost:4567/patitas/publicacion/perdida") 
+        fetch("https://patitasback.herokuapp.com/patitas/publicacion/perdida") 
             .then(response =>{
                 status = response.status
                 return response.json()})
