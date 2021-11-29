@@ -37,7 +37,6 @@ var app = new Vue({
             
             alert('SE CREO EL ADMIN CORRECTAMENTE')
             document.getElementById("recargar").click()
-
         },        
               
         
