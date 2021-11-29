@@ -2,15 +2,8 @@
 var app = new Vue({
     el: "#appVueQuieroAdoptar",
     data: {
-        nombre:"",
-        apodo:"",
-        sexo:"",
-        especie:"",
-        edad:"",
-        descripcion:"",
-        fotos:[],
         idPers:"",
-        idMasc:"",
+        idAdop:"",
         preguntas:[],
         respuestas:[],
         preguntasOrdenadas:[],
@@ -25,33 +18,44 @@ var app = new Vue({
 
 
     methods:{
-        registrar: async function(){
+        registrarAdop: async function(){
             if (validateNotNullImput(this)) {
 
                 this.idPers = localStorage.getItem("IDPERSONA")
-                await this.crearMascota()
-                await this.agregarFotos()
-                await this.cargarCaracteristicas()
-                alert("SE CREO LA MASCOTA")
+                await this.crearAdoptante()
+                await this.guardarComodidades()
+                await this.guardarPreferencias()
+                alert("SE CREO EL ADOPTANTE")
                 document.getElementById("volverInicio").click();
                 
             } else {
                 alert("TENES QUE COMPLETAR TODOS LOS CAMPOS")
             };
-        },
-       
-     
+        },    
    
       
-        mezclarListas: function(){
+        mezclarListasComodidades: function(){
+            const lista = this.respuestasComo.map((resp, index)=> 
+                ({
+                   comoXad_adoptante:{
+                    pers_id: parseInt(this.idAdop)
+                   },
+                   comoXad_valor: resp,
+                   comoXad_como: {
+                       como_clave: this.comodidadesOrdenadas[index]
+                   }
+                }))
+                return lista
+        },
+        mezclarListasPreferencias: function(){
             const lista = this.respuestas.map((resp, index)=> 
                 ({
-                   carMasMas_mascota:{
-                    masc_id: parseInt(this.idMasc)
+                   prefXado_adoptante:{
+                        pers_id: parseInt(this.idAdop)
                    },
-                   carMasMas_valor: resp,
-                   carMasMas_carmas: {
-                       carmas_clave: this.preguntasOrdenadas[index]
+                   prefXado_valor: resp,
+                   prefXado_pref: {
+                       pref_clave: this.preguntasOrdenadas[index]
                    }
                 }))
                 return lista
@@ -94,25 +98,18 @@ var app = new Vue({
             
         },
 
-        cargarCaracteristicas: function (){
+        crearAdoptante: function (){
 
-            return new Promise(resolve => {  
-
-
-                var lista = this.mezclarListas(this.preguntasOrdenadas, this.respuestas)
-
-                var req = {
-                    "caracteristicas": lista
-                }
-    
-                fetch("http://localhost:4567/patitas/mascotaCarac", {
-                    method: "POST",
-                    body: JSON.stringify(req)
+            return new Promise(resolve => { 
+                    
+                fetch("http://localhost:4567/patitas/adoptante/" + this.idPers, {
+                    method: "POST"
                 })
                 .then(Response => {
                     error(Response.status, "No se agregaron las caracteristicas")
                     return Response.json()})
-                .then(data => {                    
+                .then(data => {  
+                    this.idAdop = data.id                  
                     resolve('se agregaron las caracteristicas')
                 })
     
@@ -120,37 +117,44 @@ var app = new Vue({
     
                 })
 
-
         },
 
+        guardarComodidades: function(){      
+            
+            return new Promise(resolve => { 
+                    let lista = this.mezclarListasComodidades();
+                    let req = {
+                        "comodidades": lista
+                    }                    
+                    fetch("http://localhost:4567/patitas/adoptante/comodidades", {
+                        method: "POST",
+                        body: JSON.stringify(req)
+                    })
+                    .then(Response => {
+                        return Response.json()})                        
+                    .then(() => {
+                        resolve('Se guardaron las comodidades')
+                    })
+    
+                })           
+        },
+        guardarPreferencias: function(){       
+            return new Promise(resolve => { 
+                let lista = this.mezclarListasPreferencias();
+                let req = {
+                    "preferencias": lista
+                }                    
+                fetch("http://localhost:4567/patitas/adoptante/preferencias", {
+                    method: "POST",
+                    body: JSON.stringify(req)
+                })
+                .then(Response => {                        
+                    return Response.json()})
+                .then(() => {
+                    resolve('Se guardaron las preferencias')
+                })
 
-        crearPubli: function(){       
-            const idPers = localStorage.getItem("IDPERSONA")     
-            let req = {
-                "publ_organizacion":{
-                    "orga_id":1
-                },
-                "publ_estado":"ACTIVA",
-                "pdar_mascota":{
-                    "masc_id":this.mascota
-                },
-                "pdar_duenio":{
-                    "pers_id":parseInt(idPers)
-                }
-            }
-            var status
-            fetch("http://localhost:4567/patitas/publicacion/adopcion", {
-                method: "POST",
-                body: JSON.stringify(req)
-            })
-            .then(Response => {
-                status = Response.status
-                return Response.json()})
-            .then(data => {
-                error(status,data.mensaje)
-                alert("Se envio tu formulario, recibirás recomendaciones sobre mascotas en adopción semanalmente")
-                document.getElementById("adoptar").click();
-            })
+            }) 
 
         }
 
@@ -192,9 +196,9 @@ function error(status, mensaje){
 }
 
 const validateNotNullImput = data => {
-    const {fotos, preguntas, respuestas, preguntasOrdenadas, idMasc, idPers, ...elResto} = data._data
-  
-    return Object.values(elResto).every( e => e != "") && (fotos.length > 0)
+    const {respuestas,respuestasComo, preguntasOrdenadas, idPers, ...elResto} = data._data
+
+    return (respuestas.length > 0) && (respuestasComo.length > 0) 
 }
 
 

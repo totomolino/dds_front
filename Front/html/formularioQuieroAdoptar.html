@@ -155,7 +155,7 @@
                 placeholder="Especifique"
                 type="text"
                 name="caracteristicas"
-                v-on:change="agregarCaracteristica($event, 0)"
+                v-on:change="agregarCaracteristica($event, index)"
               />
               <br>
               <br>
@@ -163,8 +163,8 @@
           </fieldset>
 
           <section>
-            <button class="boton-enviar" v-on:click="crearPubli()">Enviar</button>            
-            <a id="adoptar" href="adoptar.html" target = "_self" ></a>
+            <button class="boton-enviar" v-on:click="registrarAdop()">Enviar</button>            
+            <a id="volverInicio" href="./index.html" target = "_self" ></a>
           </section>
 
         </section>
