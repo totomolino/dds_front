@@ -73,6 +73,18 @@ var app = new Vue({
             }
             
         },
+        agregarRespuestasComo: function (event, pos){
+            var carac = event.target.value
+            if(carac != ""){
+                this.respuestasComo[pos] = carac
+                console.log(this.respuestasComo)
+            }
+            else{
+                this.respuestasComo [pos] = null
+                console.log(this.respuestasComo)
+            }
+            
+        },
         agregarPreguntas: function (event, pos){
             var preg = event.target.value
             if(preg != ""){
@@ -102,15 +114,15 @@ var app = new Vue({
 
             return new Promise(resolve => { 
                     
-                fetch("http://localhost:4567/patitas/adoptante/" + this.idPers, {
+                fetch("http://localhost:4567/patitas/adoptante/crear/" + this.idPers, {
                     method: "POST"
                 })
-                .then(Response => {
-                    error(Response.status, "No se agregaron las caracteristicas")
-                    return Response.json()})
-                .then(data => {  
-                    this.idAdop = data.id                  
-                    resolve('se agregaron las caracteristicas')
+                .then(Response => {                                         
+                     return Response.json()
+                })
+                .then(aa => {                    
+                    this.idAdop = aa.id                 
+                    resolve('se creo el adoptante')
                 })
     
     
@@ -130,8 +142,7 @@ var app = new Vue({
                         method: "POST",
                         body: JSON.stringify(req)
                     })
-                    .then(Response => {
-                        return Response.json()})                        
+                    .then(Response => Response.json())                        
                     .then(() => {
                         resolve('Se guardaron las comodidades')
                     })
@@ -148,8 +159,7 @@ var app = new Vue({
                     method: "POST",
                     body: JSON.stringify(req)
                 })
-                .then(Response => {                        
-                    return Response.json()})
+                .then(Response =>  Response.json())
                 .then(() => {
                     resolve('Se guardaron las preferencias')
                 })
@@ -196,7 +206,7 @@ function error(status, mensaje){
 }
 
 const validateNotNullImput = data => {
-    const {respuestas,respuestasComo, preguntasOrdenadas, idPers, ...elResto} = data._data
+    const {respuestas,respuestasComo, preguntasOrdenadas, idPers,idAdop, ...elResto} = data._data
 
     return (respuestas.length > 0) && (respuestasComo.length > 0) 
 }
