@@ -18,7 +18,7 @@ var app = new Vue({
 
         },
         dameUrl: function(publi){
-            return "perfilPerdide.html?id=" + publi
+            return "PerfilPerdide.html?id=" + publi
         }
     },
     created(){
