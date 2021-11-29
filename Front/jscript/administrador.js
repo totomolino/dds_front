@@ -18,9 +18,7 @@ var app = new Vue({
 
     //LOS ADMINS CREAN OTROS ADMINS
     //LOS ADMIN AGREGAN CARACTERISTICAS DE MASCOTAS 
-
-
-
+    
     methods:{
         registrarVoluntario: async function(){            
 
