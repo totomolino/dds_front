@@ -215,7 +215,7 @@ function error(status, mensaje){
 }
 
 const validateNotNullImput = data => {
-    const {idMasc, idPers,fotos, ...elResto} = data._data
+    const {idMasc, idPers,fotos,latitud,longitud, ...elResto} = data._data
   
     return Object.values(elResto).every( e => e != "") && (fotos.length > 0)
 }
