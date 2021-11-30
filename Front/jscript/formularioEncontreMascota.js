@@ -194,7 +194,11 @@ var app = new Vue({
         //CONTACTAR AL DUENIO SI LA MASCOTA TIENE CHAPITA 
 
     created(){
-        this.idMasc = localStorage.getItem("mascEncontrada")
+        let masc =  localStorage.getItem("mascEncontrada")
+
+        if(masc == null){
+            this.idMasc = -1 
+        }
 
         this.idPers = localStorage.getItem("IDPERSONA")
     }
