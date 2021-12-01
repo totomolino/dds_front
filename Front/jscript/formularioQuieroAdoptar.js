@@ -138,7 +138,9 @@ var app = new Vue({
                     "padop_adoptante":{
                         "pers_id":parseInt(this.idAdop)
                     } ,
-                    "publ_organizacion": 1,
+                    "publ_organizacion":{
+                        "orga_id":1
+                    },
                     "publ_estado":"APROBADA"
                 }
                     
