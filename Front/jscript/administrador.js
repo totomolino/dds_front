@@ -80,7 +80,7 @@ var app = new Vue({
                     }
                 }
             var status;
-            fetch("https://patitasback.herokuapp.com/patitas/voluntario", {
+            fetch("https://patitasback.herokuapp.com/patitas/admin", {
                 method: "POST",
                 body: JSON.stringify(req)
             })
