@@ -25,6 +25,7 @@ var app = new Vue({
                 await this.crearAdoptante()
                 await this.guardarComodidades()
                 await this.guardarPreferencias()
+                await this.crearPublicacion()
                 alert("SE CREO EL ADOPTANTE")
                 document.getElementById("volverInicio").click();
                 
@@ -123,6 +124,34 @@ var app = new Vue({
                 .then(aa => {                    
                     this.idAdop = aa.id                 
                     resolve('se creo el adoptante')
+                })
+    
+    
+    
+                })
+
+        },
+        crearPublicacion: function (){
+
+            return new Promise(resolve => { 
+                const req = {
+                    "padop_adoptante":{
+                        "pers_id":parseInt(this.idAdop)
+                    } ,
+                    "publ_organizacion": 1,
+                    "publ_estado":"APROBADA"
+                }
+                    
+                fetch("https://patitasback.herokuapp.com/patitas/publicacion/adoptar", {
+                    method: "POST",
+                    body: JSON.stringify(req)
+
+                })
+                .then(Response => {                                         
+                     return Response.json()
+                })
+                .then(aa => {                                                       
+                    resolve('se creo la publi')
                 })
     
     
