@@ -14,6 +14,7 @@ var app = new Vue({
         tamanioFotosVolu:"",
         voluOrga:"",
         voluId:"",
+        adminId:"",
     },
 
     //LOS ADMINS CREAN OTROS ADMINS
@@ -32,6 +33,7 @@ var app = new Vue({
         registrarAdmin: async function(){            
 
             await this.crearUsuarioAdmin()
+            await this.crearAdmin()
             
             alert('SE CREO EL ADMIN CORRECTAMENTE')
             document.getElementById("recargar").click()
@@ -59,13 +61,37 @@ var app = new Vue({
                 status = Response.status
                 return Response.json()})
             .then(data => {
-                error(status,data.mensaje)                                
+                error(status,data.mensaje) 
+                this.adminId = data.usuario.usu_id                               
                 resolve('se creo el usuario')
                 
             })})
            
             
         },
+        crearAdmin: function(){
+            return new Promise(resolve => {
+                var req = {
+                    "admin_organizacion":{
+                        "orga_id": 1
+                    },
+                    "admin_usuario":{
+                        "usu_id":parseInt(this.adminId)
+                    }
+                }
+            var status;
+            fetch("https://patitasback.herokuapp.com/patitas/voluntario", {
+                method: "POST",
+                body: JSON.stringify(req)
+            })
+            .then(Response => {
+                status = Response.status;
+                return Response.json()})
+            .then(data => {
+                error(status,data.mensaje)                 
+                resolve('se creo el Admin')                
+            })
+        })},
         crearUsuarioVoluntario: function() {
             return new Promise(resolve => {
                 if(this.passwordVolu != this.password2Volu){ 
