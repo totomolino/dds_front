@@ -23,7 +23,7 @@ var app = new Vue({
     
     methods: {          
         adoptarMascota: function(){
-            const url = "https://patitasback.herokuapp.com/patitas/mascota/adoptar"
+            const url = "http://localhost:4567/patitas/mascota/adoptar"
             const req = {
                 "mascota": this.idMascota,
                 "adoptante": localStorage.getItem("IDPERSONA")
@@ -54,7 +54,7 @@ var app = new Vue({
         }
         else this.idMascota = mascId                                                                                                                    
 
-        const url = "https://patitasback.herokuapp.com/patitas/mascota/" + mascId
+        const url = "http://localhost:4567/patitas/mascota/" + mascId
         fetch(url)
         .then(Response => Response.json())
         .then(algo => {

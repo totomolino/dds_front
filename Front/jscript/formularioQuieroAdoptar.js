@@ -115,7 +115,7 @@ var app = new Vue({
 
             return new Promise(resolve => { 
                     
-                fetch("https://patitasback.herokuapp.com/patitas/adoptante/crear/" + this.idPers, {
+                fetch("http://localhost:4567/patitas/adoptante/crear/" + this.idPers, {
                     method: "POST"
                 })
                 .then(Response => {                                         
@@ -144,7 +144,7 @@ var app = new Vue({
                     "publ_estado":"APROBADA"
                 }
                     
-                fetch("https://patitasback.herokuapp.com/patitas/publicacion/adoptar", {
+                fetch("http://localhost:4567/patitas/publicacion/adoptar", {
                     method: "POST",
                     body: JSON.stringify(req)
 
@@ -169,7 +169,7 @@ var app = new Vue({
                     let req = {
                         "comodidades": lista
                     }                    
-                    fetch("https://patitasback.herokuapp.com/patitas/adoptante/comodidades", {
+                    fetch("http://localhost:4567/patitas/adoptante/comodidades", {
                         method: "POST",
                         body: JSON.stringify(req)
                     })
@@ -186,7 +186,7 @@ var app = new Vue({
                 let req = {
                     "preferencias": lista
                 }                    
-                fetch("https://patitasback.herokuapp.com/patitas/adoptante/preferencias", {
+                fetch("http://localhost:4567/patitas/adoptante/preferencias", {
                     method: "POST",
                     body: JSON.stringify(req)
                 })
@@ -205,13 +205,13 @@ var app = new Vue({
 
 
     created(){
-        fetch("https://patitasback.herokuapp.com/patitas/orga/caracteristicas/1" )
+        fetch("http://localhost:4567/patitas/orga/caracteristicas/1" )
         .then(Response => Response.json())
         .then(data => {
             this.preguntas = data.caracteristicas
         })
         .then(() => {
-            fetch("https://patitasback.herokuapp.com/patitas/damePreguntas/1" )
+            fetch("http://localhost:4567/patitas/damePreguntas/1" )
             .then(Response => Response.json())
             .then(data => {
                 this.comodidades = data.preguntas

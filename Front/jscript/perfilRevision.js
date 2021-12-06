@@ -14,7 +14,7 @@ var app = new Vue({
     methods: {
         validar: function(){ 
             
-            fetch("https://patitasback.herokuapp.com/patitas/aprobarPublicacion/" + this.publiId)
+            fetch("http://localhost:4567/patitas/aprobarPublicacion/" + this.publiId)
             .then(Response => Response.json())
             .then(() => {                
                 alert('se creo la publicacion')
@@ -43,7 +43,7 @@ var app = new Vue({
         }
         else this.publiId = publiID;
         
-        fetch("https://patitasback.herokuapp.com/patitas/damePublicacion/" + publiID)
+        fetch("http://localhost:4567/patitas/damePublicacion/" + publiID)
         .then(Response => Response.json())
         .then(algo => {this.publicacion = algo})
     }     

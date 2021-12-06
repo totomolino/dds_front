@@ -44,7 +44,7 @@ var app = new Vue({
                 }
             }
 
-            fetch("https://patitasback.herokuapp.com/patitas/contacto", {
+            fetch("http://localhost:4567/patitas/contacto", {
                 method: "POST",
                 body: JSON.stringify(reqCon)
             })
@@ -80,7 +80,7 @@ function agregarNotificacionPersona(id, notif){
         "fonop_forma": notif 
     }
 
-    fetch("https://patitasback.herokuapp.com/patitas/notifPers", {
+    fetch("http://localhost:4567/patitas/notifPers", {
         method: "POST",
         body: JSON.stringify(reqNotifPers)
     }).then(resp => {
@@ -103,7 +103,7 @@ function agregarNotificacionContacto(id, notif){
         "fonoc_forma":notif
     }
 
-    fetch("https://patitasback.herokuapp.com/patitas/notifCont", {
+    fetch("http://localhost:4567/patitas/notifCont", {
         method: "POST",
         body: JSON.stringify(reqNotifCon)
     }).then(Response => {

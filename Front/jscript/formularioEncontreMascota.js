@@ -41,7 +41,7 @@ var app = new Vue({
                     "publ_estado":'REVISION'
                 }
                 
-                fetch("https://patitasback.herokuapp.com/patitas/publicacion/perdida", {
+                fetch("http://localhost:4567/patitas/publicacion/perdida", {
                     method: "POST",
                     body: JSON.stringify(req)
                 })
@@ -60,7 +60,7 @@ var app = new Vue({
                     "mascota":parseInt(this.idMasc)
                 }
                 
-                fetch("https://patitasback.herokuapp.com/patitas/rescate/duenio",{
+                fetch("http://localhost:4567/patitas/rescate/duenio",{
                     method: "POST",
                     body: JSON.stringify(req)
                 })
@@ -131,7 +131,7 @@ var app = new Vue({
                   "masc_id":parseInt(this.idMasc)
               }                                 
           }                                            
-                fetch("https://patitasback.herokuapp.com/patitas/rescate", {
+                fetch("http://localhost:4567/patitas/rescate", {
                     method: "POST",
                     body: JSON.stringify(req)
                 })
@@ -155,7 +155,7 @@ var app = new Vue({
                     "fotos": lista
                 }
     
-                fetch("https://patitasback.herokuapp.com/patitas/rescate/fotos", {
+                fetch("http://localhost:4567/patitas/rescate/fotos", {
                     method: "POST",
                     body: JSON.stringify(req)
                 })

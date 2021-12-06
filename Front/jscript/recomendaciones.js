@@ -37,7 +37,7 @@ created(){
     }
     else this.adopId = publiID;
     
-    fetch("https://patitasback.herokuapp.com/patitas/publicacionesRecomendadas/" + this.adopId)
+    fetch("http://localhost:4567/patitas/publicacionesRecomendadas/" + this.adopId)
     .then(Response => Response.json())
     .then(algo => {this.publicaciones = algo})
 }     

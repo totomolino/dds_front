@@ -12,7 +12,7 @@
     
         methods: {
             perdide: function(){
-                fetch("https://patitasback.herokuapp.com/patitas/esMia/" + this.publiId)
+                fetch("http://localhost:4567/patitas/esMia/" + this.publiId)
                 .then(() => {document.getElementById("inicio").click()})
                 
             }            
@@ -28,7 +28,7 @@
             }
             else this.publiId = publiID;
             
-            fetch("https://patitasback.herokuapp.com/patitas/damePublicacion/" + publiID)
+            fetch("http://localhost:4567/patitas/damePublicacion/" + publiID)
             .then(Response => Response.json())
             .then(algo => {this.publicacion = algo})
         }     
